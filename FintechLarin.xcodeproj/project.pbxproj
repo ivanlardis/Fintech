@@ -12,6 +12,8 @@
 		8A9B3D8C2157752A00A12815 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A9B3D8A2157752A00A12815 /* Main.storyboard */; };
 		8A9B3D8E2157752A00A12815 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A9B3D8D2157752A00A12815 /* Assets.xcassets */; };
 		8A9B3D912157752A00A12815 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A9B3D8F2157752A00A12815 /* LaunchScreen.storyboard */; };
+		8A9B3DCC2157830800A12815 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9B3DCB2157830800A12815 /* Logger.swift */; };
+		8A9B3DCE2159430800A12815 /* UIApplicationState+Shortcut.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9B3DCD2159430800A12815 /* UIApplicationState+Shortcut.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		8A9B3D8D2157752A00A12815 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8A9B3D902157752A00A12815 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8A9B3D922157752A00A12815 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8A9B3DCB2157830800A12815 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		8A9B3DCD2159430800A12815 /* UIApplicationState+Shortcut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplicationState+Shortcut.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +58,24 @@
 		8A9B3D852157752A00A12815 /* FintechLarin */ = {
 			isa = PBXGroup;
 			children = (
+				8A9B3DD02159434600A12815 /* Extensions */,
 				8A9B3D862157752A00A12815 /* AppDelegate.swift */,
 				8A9B3D882157752A00A12815 /* ViewController.swift */,
 				8A9B3D8A2157752A00A12815 /* Main.storyboard */,
 				8A9B3D8D2157752A00A12815 /* Assets.xcassets */,
 				8A9B3D8F2157752A00A12815 /* LaunchScreen.storyboard */,
 				8A9B3D922157752A00A12815 /* Info.plist */,
+				8A9B3DCB2157830800A12815 /* Logger.swift */,
 			);
 			path = FintechLarin;
+			sourceTree = "<group>";
+		};
+		8A9B3DD02159434600A12815 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				8A9B3DCD2159430800A12815 /* UIApplicationState+Shortcut.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,6 +151,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A9B3D892157752A00A12815 /* ViewController.swift in Sources */,
+				8A9B3DCC2157830800A12815 /* Logger.swift in Sources */,
+				8A9B3DCE2159430800A12815 /* UIApplicationState+Shortcut.swift in Sources */,
 				8A9B3D872157752A00A12815 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -276,11 +292,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = FintechLarin/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ivanlarin.FintechLarin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -290,11 +307,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = FintechLarin/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ivanlarin.FintechLarin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
