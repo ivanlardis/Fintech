@@ -8,20 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		8A9B3D872157752A00A12815 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9B3D862157752A00A12815 /* AppDelegate.swift */; };
-		8A9B3D892157752A00A12815 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9B3D882157752A00A12815 /* ViewController.swift */; };
 		8A9B3D8C2157752A00A12815 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A9B3D8A2157752A00A12815 /* Main.storyboard */; };
 		8A9B3D8E2157752A00A12815 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A9B3D8D2157752A00A12815 /* Assets.xcassets */; };
 		8A9B3D912157752A00A12815 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A9B3D8F2157752A00A12815 /* LaunchScreen.storyboard */; };
+		8ACE2CBF216001B800782E10 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACE2CBE216001B800782E10 /* ProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		8A9B3D832157752A00A12815 /* FintechLarin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FintechLarin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A9B3D862157752A00A12815 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8A9B3D882157752A00A12815 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8A9B3D8B2157752A00A12815 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8A9B3D8D2157752A00A12815 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8A9B3D902157752A00A12815 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8A9B3D922157752A00A12815 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8ACE2CBE216001B800782E10 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,11 +55,11 @@
 			isa = PBXGroup;
 			children = (
 				8A9B3D862157752A00A12815 /* AppDelegate.swift */,
-				8A9B3D882157752A00A12815 /* ViewController.swift */,
 				8A9B3D8A2157752A00A12815 /* Main.storyboard */,
 				8A9B3D8D2157752A00A12815 /* Assets.xcassets */,
 				8A9B3D8F2157752A00A12815 /* LaunchScreen.storyboard */,
 				8A9B3D922157752A00A12815 /* Info.plist */,
+				8ACE2CBE216001B800782E10 /* ProfileViewController.swift */,
 			);
 			path = FintechLarin;
 			sourceTree = "<group>";
@@ -137,7 +137,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8A9B3D892157752A00A12815 /* ViewController.swift in Sources */,
+				8ACE2CBF216001B800782E10 /* ProfileViewController.swift in Sources */,
 				8A9B3D872157752A00A12815 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
