@@ -14,8 +14,6 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet weak var editProfileButtton: UIButton!
     @IBOutlet weak var editPhotoButton: UIButton!
 
-    var picker: UIImagePickerController? = UIImagePickerController()
-
     /** Логика метода init  — мы либо находим .xib (.nib) файл и ассоциируем его с UIViewController'ом, либо не ассоциируем.
       На данном этапе просто запоминается название xib файла, из которого, в случае чего надо подгрузить view.
      
@@ -34,8 +32,12 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
       Поэтому, использовать вычисления, основанные на ширине / высоте view, в методе viewDidload не рекомендуется. */
     override func viewDidLoad() {
         super.viewDidLoad()
-        picker?.delegate = self
         print("\(#function)  \(editProfileButtton.frame)")
+    }
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        initViews()
     }
 
     /** При вызове viewWillAppear, view уже находится в иерархии отображения (view hierarchy) и имеет актуальные размеры,
@@ -44,7 +46,6 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         print("\(#function)  \(editProfileButtton.frame)")
-        initViews()
     }
 
     @IBAction func editPhotoAction(_ sender: Any) {
@@ -92,17 +93,21 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
 
     func openGallary() {
-        picker!.allowsEditing = false
-        picker!.sourceType = UIImagePickerController.SourceType.photoLibrary
-        present(picker!, animated: true, completion: nil)
+        let picker: UIImagePickerController = UIImagePickerController()
+        picker.delegate = self
+        picker.allowsEditing = false
+        picker.sourceType = UIImagePickerController.SourceType.photoLibrary
+        present(picker, animated: true, completion: nil)
     }
 
     func openCamera() {
         if (UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.camera)) {
-            picker!.allowsEditing = false
-            picker!.sourceType = UIImagePickerController.SourceType.camera
-            picker!.cameraCaptureMode = .photo
-            present(picker!, animated: true, completion: nil)
+            let picker: UIImagePickerController = UIImagePickerController()
+            picker.delegate = self
+            picker.allowsEditing = false
+            picker.sourceType = UIImagePickerController.SourceType.camera
+            picker.cameraCaptureMode = .photo
+            present(picker, animated: true, completion: nil)
         } else {
             let alert = UIAlertController(title: "Камера не найдена", message: "На этом устройстве нет камеры", preferredStyle: .alert)
             let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
