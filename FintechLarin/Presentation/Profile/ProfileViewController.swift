@@ -53,6 +53,10 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         showChoiceImageAlert()
     }
 
+    @IBAction func actionClose(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+
     func initViews() {
         let widthEditPhotoView = editPhotoButton.frame.size.width
 

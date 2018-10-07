@@ -7,14 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5EC1A547AA3A0EF324BC7669 /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC1A2F1FE12FA3A14349C17 /* TestData.swift */; };
+		5EC1AAE867259244D2A551D7 /* ConversationCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC1A162D3FE475C8578E833 /* ConversationCellModel.swift */; };
+		5EC1AF885D054D9B37E3805A /* ConversationCellConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC1A9B5C7A31464E87E066C /* ConversationCellConfiguration.swift */; };
+		5EC1AFFAF78DA763C8D2A394 /* ConversationsCellConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC1A78D7A2B71498D07881E /* ConversationsCellConfiguration.swift */; };
 		8A9B3D872157752A00A12815 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9B3D862157752A00A12815 /* AppDelegate.swift */; };
 		8A9B3D8C2157752A00A12815 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A9B3D8A2157752A00A12815 /* Main.storyboard */; };
 		8A9B3D8E2157752A00A12815 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A9B3D8D2157752A00A12815 /* Assets.xcassets */; };
 		8A9B3D912157752A00A12815 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A9B3D8F2157752A00A12815 /* LaunchScreen.storyboard */; };
 		8ACE2CBF216001B800782E10 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACE2CBE216001B800782E10 /* ProfileViewController.swift */; };
+		8AE081A12168CD14009ABB20 /* ConversationListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE081A02168CD14009ABB20 /* ConversationListViewController.swift */; };
+		8AE081A62168D164009ABB20 /* ConversationsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE081A52168D164009ABB20 /* ConversationsCell.swift */; };
+		8AE081AC2168D5CE009ABB20 /* ConversationsCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE081AB2168D5CE009ABB20 /* ConversationsCellModel.swift */; };
+		8AE081B121694D64009ABB20 /* ConversationIncomingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE081B021694D64009ABB20 /* ConversationIncomingCell.swift */; };
+		8AE081B321694DA4009ABB20 /* ConversationOutgoingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE081B221694DA4009ABB20 /* ConversationOutgoingCell.swift */; };
+		8AE081B521694E7E009ABB20 /* ConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE081B421694E7E009ABB20 /* ConversationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5EC1A162D3FE475C8578E833 /* ConversationCellModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversationCellModel.swift; sourceTree = "<group>"; };
+		5EC1A2F1FE12FA3A14349C17 /* TestData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestData.swift; sourceTree = "<group>"; };
+		5EC1A78D7A2B71498D07881E /* ConversationsCellConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversationsCellConfiguration.swift; sourceTree = "<group>"; };
+		5EC1A9B5C7A31464E87E066C /* ConversationCellConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversationCellConfiguration.swift; sourceTree = "<group>"; };
 		8A9B3D832157752A00A12815 /* FintechLarin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FintechLarin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A9B3D862157752A00A12815 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8A9B3D8B2157752A00A12815 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -22,6 +36,12 @@
 		8A9B3D902157752A00A12815 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8A9B3D922157752A00A12815 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8ACE2CBE216001B800782E10 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		8AE081A02168CD14009ABB20 /* ConversationListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationListViewController.swift; sourceTree = "<group>"; };
+		8AE081A52168D164009ABB20 /* ConversationsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationsCell.swift; sourceTree = "<group>"; };
+		8AE081AB2168D5CE009ABB20 /* ConversationsCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationsCellModel.swift; sourceTree = "<group>"; };
+		8AE081B021694D64009ABB20 /* ConversationIncomingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationIncomingCell.swift; sourceTree = "<group>"; };
+		8AE081B221694DA4009ABB20 /* ConversationOutgoingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationOutgoingCell.swift; sourceTree = "<group>"; };
+		8AE081B421694E7E009ABB20 /* ConversationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +74,64 @@
 		8A9B3D852157752A00A12815 /* FintechLarin */ = {
 			isa = PBXGroup;
 			children = (
+				8AE081A22168CFFD009ABB20 /* Presentation */,
 				8A9B3D862157752A00A12815 /* AppDelegate.swift */,
 				8A9B3D8A2157752A00A12815 /* Main.storyboard */,
 				8A9B3D8D2157752A00A12815 /* Assets.xcassets */,
 				8A9B3D8F2157752A00A12815 /* LaunchScreen.storyboard */,
 				8A9B3D922157752A00A12815 /* Info.plist */,
-				8ACE2CBE216001B800782E10 /* ProfileViewController.swift */,
 			);
 			path = FintechLarin;
+			sourceTree = "<group>";
+		};
+		8AE081A22168CFFD009ABB20 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				8AE081AF21694B87009ABB20 /* Conversation */,
+				8AE081AD21694ABE009ABB20 /* Data */,
+				8AE081A42168D042009ABB20 /* Profile */,
+				8AE081A32168D016009ABB20 /* Conversations */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		8AE081A32168D016009ABB20 /* Conversations */ = {
+			isa = PBXGroup;
+			children = (
+				8AE081A02168CD14009ABB20 /* ConversationListViewController.swift */,
+				8AE081A52168D164009ABB20 /* ConversationsCell.swift */,
+				8AE081AB2168D5CE009ABB20 /* ConversationsCellModel.swift */,
+				5EC1A78D7A2B71498D07881E /* ConversationsCellConfiguration.swift */,
+			);
+			path = Conversations;
+			sourceTree = "<group>";
+		};
+		8AE081A42168D042009ABB20 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				8ACE2CBE216001B800782E10 /* ProfileViewController.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		8AE081AD21694ABE009ABB20 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				5EC1A2F1FE12FA3A14349C17 /* TestData.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		8AE081AF21694B87009ABB20 /* Conversation */ = {
+			isa = PBXGroup;
+			children = (
+				5EC1A162D3FE475C8578E833 /* ConversationCellModel.swift */,
+				5EC1A9B5C7A31464E87E066C /* ConversationCellConfiguration.swift */,
+				8AE081B021694D64009ABB20 /* ConversationIncomingCell.swift */,
+				8AE081B221694DA4009ABB20 /* ConversationOutgoingCell.swift */,
+				8AE081B421694E7E009ABB20 /* ConversationViewController.swift */,
+			);
+			path = Conversation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +207,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8AE081A62168D164009ABB20 /* ConversationsCell.swift in Sources */,
 				8ACE2CBF216001B800782E10 /* ProfileViewController.swift in Sources */,
+				8AE081B521694E7E009ABB20 /* ConversationViewController.swift in Sources */,
+				8AE081A12168CD14009ABB20 /* ConversationListViewController.swift in Sources */,
+				8AE081AC2168D5CE009ABB20 /* ConversationsCellModel.swift in Sources */,
 				8A9B3D872157752A00A12815 /* AppDelegate.swift in Sources */,
+				5EC1A547AA3A0EF324BC7669 /* TestData.swift in Sources */,
+				8AE081B121694D64009ABB20 /* ConversationIncomingCell.swift in Sources */,
+				5EC1AFFAF78DA763C8D2A394 /* ConversationsCellConfiguration.swift in Sources */,
+				5EC1AAE867259244D2A551D7 /* ConversationCellModel.swift in Sources */,
+				5EC1AF885D054D9B37E3805A /* ConversationCellConfiguration.swift in Sources */,
+				8AE081B321694DA4009ABB20 /* ConversationOutgoingCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
