@@ -17,38 +17,24 @@ class ConversationsCell: UITableViewCell, ConversationsCellConfiguration {
     let dateFormatter = DateFormatter()
 
     var message: String? {
-        set(newMessage) {
-            if (newMessage == nil) {
+        didSet {
+            if (message == nil) {
                 messageLabel.text = "No messages yet"
             } else {
-                messageLabel.text = newMessage
+                messageLabel.text = message
             }
-        }
-        get {
-            return messageLabel.text
         }
     }
 
     var name: String? {
-        set(newName) {
-            nameLabel.text = newName
-        }
-        get {
-            return nameLabel.text
+        didSet {
+            nameLabel.text = name
         }
     }
 
-
     var date: Date? {
-        get {
-            if let timeText = timeLabel.text {
-                return dateFormatter.date(from: timeText)
-            }
-            return nil
-        }
-
-        set(newDate) {
-            guard let date = newDate else {
+        didSet {
+            guard let date = date else {
                 timeLabel.text = nil
                 return
             }
@@ -63,22 +49,16 @@ class ConversationsCell: UITableViewCell, ConversationsCellConfiguration {
         }
     }
 
-    var online: Bool {
-        set(isOnline) {
+    var online: Bool = false {
+        didSet {
             let yellowColor = UIColor.init(red: 247 / 255.0, green: 245 / 255.0, blue: 215 / 255.0, alpha: 1.0)
-            view.backgroundColor = isOnline ? yellowColor : .white
-        }
-        get {
-            return view.backgroundColor != .white
+            view.backgroundColor = online ? yellowColor : .white
         }
     }
 
-    var hasUnreadMessages: Bool {
-        set(isUnreadMessages) {
-            messageLabel.font = isUnreadMessages ? UIFont.boldSystemFont(ofSize: 18.0) : UIFont.systemFont(ofSize: 16.0)
-        }
-        get {
-            return messageLabel.font.pointSize == 18
+    var hasUnreadMessages: Bool = false {
+        didSet(isUnreadMessages) {
+            messageLabel.font = hasUnreadMessages ? UIFont.boldSystemFont(ofSize: 18.0) : UIFont.systemFont(ofSize: 16.0)
         }
     }
 }

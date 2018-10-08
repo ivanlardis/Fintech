@@ -13,15 +13,12 @@ class ConversationOutgoingCell: UITableViewCell, ConversationCellConfiguration {
     @IBOutlet weak var messageLabel: UILabel!
 
     var textMessage: String? {
-        set(newMessage) {
-            if (newMessage == nil) {
+        didSet {
+            if (textMessage == nil) {
                 messageLabel.text = "No messages yet"
             } else {
-                messageLabel.text = newMessage
+                messageLabel.text = textMessage
             }
-        }
-        get {
-            return messageLabel.text
         }
     }
 }
