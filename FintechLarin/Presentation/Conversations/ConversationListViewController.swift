@@ -8,9 +8,13 @@
 
 import UIKit
 
-class ConversationListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ConversationListViewController: UIViewController,
+        UITableViewDataSource,
+        UITableViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
+
+    var themeManager: ThemesManager = ThemesManager()
     var data = [TableStruct]()
 
     struct TableStruct {
@@ -62,6 +66,30 @@ class ConversationListViewController: UIViewController, UITableViewDataSource, U
         if segue.identifier == "ConversationSegua" {
             let cell = sender as! ConversationsCell
             segue.destination.navigationItem.title = cell.name
+        } else if segue.identifier == "ThemeViewSegua" {
+
+            #if THEMEOBJ
+
+            if let viewControlerObj = segue.destination as? ThemesViewController {
+                viewControlerObj.delegate = self.themeManager
+            } else {
+                print("Ошибка в сториборде  ThemesViewController нужно выберать модуль None")
+            }
+
+            #endif
+
+            #if THEMESWIFT
+
+            if let viewControlerSwift = segue.destination as? ThemesViewController {
+                viewControlerSwift.themeClosure = { [unowned self] (controller, color) in
+                    self.themeManager.handleTheme(controller, color)
+                }
+            } else {
+                print("Ошибка в сториборде  ThemesViewController нужно выберать модуль FintechLarin")
+            }
+
+            #endif
+
         } else {
             super.prepare(for: segue, sender: sender)
         }

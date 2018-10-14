@@ -11,6 +11,30 @@
 		5EC1AAE867259244D2A551D7 /* ConversationCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC1A162D3FE475C8578E833 /* ConversationCellModel.swift */; };
 		5EC1AF885D054D9B37E3805A /* ConversationCellConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC1A9B5C7A31464E87E066C /* ConversationCellConfiguration.swift */; };
 		5EC1AFFAF78DA763C8D2A394 /* ConversationsCellConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC1A78D7A2B71498D07881E /* ConversationsCellConfiguration.swift */; };
+		8A24138C217351E7000B87B3 /* ConversationsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE081A52168D164009ABB20 /* ConversationsCell.swift */; };
+		8A24138D217351E7000B87B3 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACE2CBE216001B800782E10 /* ProfileViewController.swift */; };
+		8A24138E217351E7000B87B3 /* ConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE081B421694E7E009ABB20 /* ConversationViewController.swift */; };
+		8A24138F217351E7000B87B3 /* ConversationListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE081A02168CD14009ABB20 /* ConversationListViewController.swift */; };
+		8A241390217351E7000B87B3 /* ConversationsCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE081AB2168D5CE009ABB20 /* ConversationsCellModel.swift */; };
+		8A241392217351E7000B87B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9B3D862157752A00A12815 /* AppDelegate.swift */; };
+		8A241393217351E7000B87B3 /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC1A2F1FE12FA3A14349C17 /* TestData.swift */; };
+		8A241394217351E7000B87B3 /* ConversationIncomingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE081B021694D64009ABB20 /* ConversationIncomingCell.swift */; };
+		8A241395217351E7000B87B3 /* ConversationsCellConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC1A78D7A2B71498D07881E /* ConversationsCellConfiguration.swift */; };
+		8A241396217351E7000B87B3 /* ConversationCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC1A162D3FE475C8578E833 /* ConversationCellModel.swift */; };
+		8A241397217351E7000B87B3 /* ConversationCellConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC1A9B5C7A31464E87E066C /* ConversationCellConfiguration.swift */; };
+		8A241398217351E7000B87B3 /* ConversationOutgoingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE081B221694DA4009ABB20 /* ConversationOutgoingCell.swift */; };
+		8A241399217351E7000B87B3 /* ThemesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A241369216F3A0D000B87B3 /* ThemesViewController.m */; };
+		8A24139C217351E7000B87B3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A9B3D8F2157752A00A12815 /* LaunchScreen.storyboard */; };
+		8A24139D217351E7000B87B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A9B3D8D2157752A00A12815 /* Assets.xcassets */; };
+		8A24139E217351E7000B87B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A9B3D8A2157752A00A12815 /* Main.storyboard */; };
+		8A2413B42173A1E6000B87B3 /* ThemesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2413A42173531E000B87B3 /* ThemesViewController.swift */; };
+		8A2413B62173A488000B87B3 /* ThemesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2413B52173A488000B87B3 /* ThemesManager.swift */; };
+		8A2413B72173A488000B87B3 /* ThemesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2413B52173A488000B87B3 /* ThemesManager.swift */; };
+		8A2413BB2173A60B000B87B3 /* ThemesManager+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2413B92173A60B000B87B3 /* ThemesManager+Delegate.swift */; };
+		8A2413BE2173AEEE000B87B3 /* UserDefaults+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2413BD2173AEEE000B87B3 /* UserDefaults+Color.swift */; };
+		8A2413BF2173AEEE000B87B3 /* UserDefaults+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2413BD2173AEEE000B87B3 /* UserDefaults+Color.swift */; };
+		8A2413C32173DC1D000B87B3 /* Themes.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A24136C216F609C000B87B3 /* Themes.m */; };
+		8A2413C72173E635000B87B3 /* Themes.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A24136C216F609C000B87B3 /* Themes.m */; };
 		8A9B3D872157752A00A12815 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9B3D862157752A00A12815 /* AppDelegate.swift */; };
 		8A9B3D8C2157752A00A12815 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A9B3D8A2157752A00A12815 /* Main.storyboard */; };
 		8A9B3D8E2157752A00A12815 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A9B3D8D2157752A00A12815 /* Assets.xcassets */; };
@@ -25,10 +49,24 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5EC1A0D0AE61537EA2147AFE /* FintechLarin-Bridging-Header-Obj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FintechLarin-Bridging-Header-Obj.h"; sourceTree = "<group>"; };
 		5EC1A162D3FE475C8578E833 /* ConversationCellModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversationCellModel.swift; sourceTree = "<group>"; };
 		5EC1A2F1FE12FA3A14349C17 /* TestData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestData.swift; sourceTree = "<group>"; };
 		5EC1A78D7A2B71498D07881E /* ConversationsCellConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversationsCellConfiguration.swift; sourceTree = "<group>"; };
 		5EC1A9B5C7A31464E87E066C /* ConversationCellConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversationCellConfiguration.swift; sourceTree = "<group>"; };
+		8A241367216F3A0D000B87B3 /* FintechLarin-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FintechLarin-Bridging-Header.h"; sourceTree = "<group>"; };
+		8A241368216F3A0D000B87B3 /* ThemesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThemesViewController.h; sourceTree = "<group>"; };
+		8A241369216F3A0D000B87B3 /* ThemesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThemesViewController.m; sourceTree = "<group>"; };
+		8A24136B216F609C000B87B3 /* Themes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Themes.h; sourceTree = "<group>"; };
+		8A24136C216F609C000B87B3 /* Themes.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Themes.m; sourceTree = "<group>"; };
+		8A24136E21732CCD000B87B3 /* ThemesViewControllerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThemesViewControllerDelegate.h; sourceTree = "<group>"; };
+		8A241389217351D0000B87B3 /* FintechLarin copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "FintechLarin copy-Info.plist"; path = "/Users/ivanlardis/tinkof/FintechLarin/FintechLarin copy-Info.plist"; sourceTree = "<absolute>"; };
+		8A2413A2217351E7000B87B3 /* FintechLarinObjectiveC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FintechLarinObjectiveC.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8A2413A3217351E7000B87B3 /* FintechLarin copy2-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "FintechLarin copy2-Info.plist"; path = "/Users/ivanlardis/tinkof/FintechLarin/FintechLarin copy2-Info.plist"; sourceTree = "<absolute>"; };
+		8A2413A42173531E000B87B3 /* ThemesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesViewController.swift; sourceTree = "<group>"; };
+		8A2413B52173A488000B87B3 /* ThemesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesManager.swift; sourceTree = "<group>"; };
+		8A2413B92173A60B000B87B3 /* ThemesManager+Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ThemesManager+Delegate.swift"; sourceTree = "<group>"; };
+		8A2413BD2173AEEE000B87B3 /* UserDefaults+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Color.swift"; sourceTree = "<group>"; };
 		8A9B3D832157752A00A12815 /* FintechLarin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FintechLarin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A9B3D862157752A00A12815 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8A9B3D8B2157752A00A12815 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -45,6 +83,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		8A24139A217351E7000B87B3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8A9B3D802157752A00A12815 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -55,11 +100,86 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8A241366216F39BA000B87B3 /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				8A2413B82173A5DA000B87B3 /* manager */,
+				8A241368216F3A0D000B87B3 /* ThemesViewController.h */,
+				8A241369216F3A0D000B87B3 /* ThemesViewController.m */,
+				8A24136E21732CCD000B87B3 /* ThemesViewControllerDelegate.h */,
+				8A2413A42173531E000B87B3 /* ThemesViewController.swift */,
+				8A24136B216F609C000B87B3 /* Themes.h */,
+				8A24136C216F609C000B87B3 /* Themes.m */,
+			);
+			path = Theme;
+			sourceTree = "<group>";
+		};
+		8A241388217351D0000B87B3 /* Resources-iPad */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Resources-iPad";
+			sourceTree = "<group>";
+		};
+		8A2413AC21739481000B87B3 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				8A2413BC2173AECC000B87B3 /* Extension */,
+				8A2413AE217394AF000B87B3 /* Bridging */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		8A2413AE217394AF000B87B3 /* Bridging */ = {
+			isa = PBXGroup;
+			children = (
+				8A2413B0217394C9000B87B3 /* ThemeSwift */,
+				8A2413AF217394C1000B87B3 /* ThemeObj */,
+			);
+			path = Bridging;
+			sourceTree = "<group>";
+		};
+		8A2413AF217394C1000B87B3 /* ThemeObj */ = {
+			isa = PBXGroup;
+			children = (
+				5EC1A0D0AE61537EA2147AFE /* FintechLarin-Bridging-Header-Obj.h */,
+			);
+			path = ThemeObj;
+			sourceTree = "<group>";
+		};
+		8A2413B0217394C9000B87B3 /* ThemeSwift */ = {
+			isa = PBXGroup;
+			children = (
+				8A241367216F3A0D000B87B3 /* FintechLarin-Bridging-Header.h */,
+			);
+			path = ThemeSwift;
+			sourceTree = "<group>";
+		};
+		8A2413B82173A5DA000B87B3 /* manager */ = {
+			isa = PBXGroup;
+			children = (
+				8A2413B52173A488000B87B3 /* ThemesManager.swift */,
+				8A2413B92173A60B000B87B3 /* ThemesManager+Delegate.swift */,
+			);
+			path = manager;
+			sourceTree = "<group>";
+		};
+		8A2413BC2173AECC000B87B3 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				8A2413BD2173AEEE000B87B3 /* UserDefaults+Color.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		8A9B3D7A2157752A00A12815 = {
 			isa = PBXGroup;
 			children = (
+				8A241388217351D0000B87B3 /* Resources-iPad */,
 				8A9B3D852157752A00A12815 /* FintechLarin */,
 				8A9B3D842157752A00A12815 /* Products */,
+				8A241389217351D0000B87B3 /* FintechLarin copy-Info.plist */,
+				8A2413A3217351E7000B87B3 /* FintechLarin copy2-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +187,7 @@
 			isa = PBXGroup;
 			children = (
 				8A9B3D832157752A00A12815 /* FintechLarin.app */,
+				8A2413A2217351E7000B87B3 /* FintechLarinObjectiveC.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -74,6 +195,7 @@
 		8A9B3D852157752A00A12815 /* FintechLarin */ = {
 			isa = PBXGroup;
 			children = (
+				8A2413AC21739481000B87B3 /* Utils */,
 				8AE081A22168CFFD009ABB20 /* Presentation */,
 				8A9B3D862157752A00A12815 /* AppDelegate.swift */,
 				8A9B3D8A2157752A00A12815 /* Main.storyboard */,
@@ -87,6 +209,7 @@
 		8AE081A22168CFFD009ABB20 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				8A241366216F39BA000B87B3 /* Theme */,
 				8AE081AF21694B87009ABB20 /* Conversation */,
 				8AE081AD21694ABE009ABB20 /* Data */,
 				8AE081A42168D042009ABB20 /* Profile */,
@@ -137,6 +260,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		8A24138A217351E7000B87B3 /* FintechLarinObjectiveC */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8A24139F217351E7000B87B3 /* Build configuration list for PBXNativeTarget "FintechLarinObjectiveC" */;
+			buildPhases = (
+				8A24138B217351E7000B87B3 /* Sources */,
+				8A24139A217351E7000B87B3 /* Frameworks */,
+				8A24139B217351E7000B87B3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FintechLarinObjectiveC;
+			productName = FintechLarin;
+			productReference = 8A2413A2217351E7000B87B3 /* FintechLarinObjectiveC.app */;
+			productType = "com.apple.product-type.application";
+		};
 		8A9B3D822157752A00A12815 /* FintechLarin */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8A9B3D952157752A00A12815 /* Build configuration list for PBXNativeTarget "FintechLarin" */;
@@ -164,6 +304,9 @@
 				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = "ivan larin";
 				TargetAttributes = {
+					8A24138A217351E7000B87B3 = {
+						ProvisioningStyle = Automatic;
+					};
 					8A9B3D822157752A00A12815 = {
 						CreatedOnToolsVersion = 9.2;
 						LastSwiftMigration = 1000;
@@ -185,11 +328,22 @@
 			projectRoot = "";
 			targets = (
 				8A9B3D822157752A00A12815 /* FintechLarin */,
+				8A24138A217351E7000B87B3 /* FintechLarinObjectiveC */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		8A24139B217351E7000B87B3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8A24139C217351E7000B87B3 /* LaunchScreen.storyboard in Resources */,
+				8A24139D217351E7000B87B3 /* Assets.xcassets in Resources */,
+				8A24139E217351E7000B87B3 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8A9B3D812157752A00A12815 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -203,6 +357,30 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		8A24138B217351E7000B87B3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8A2413BB2173A60B000B87B3 /* ThemesManager+Delegate.swift in Sources */,
+				8A24138C217351E7000B87B3 /* ConversationsCell.swift in Sources */,
+				8A24138D217351E7000B87B3 /* ProfileViewController.swift in Sources */,
+				8A24138E217351E7000B87B3 /* ConversationViewController.swift in Sources */,
+				8A24138F217351E7000B87B3 /* ConversationListViewController.swift in Sources */,
+				8A241390217351E7000B87B3 /* ConversationsCellModel.swift in Sources */,
+				8A241392217351E7000B87B3 /* AppDelegate.swift in Sources */,
+				8A241393217351E7000B87B3 /* TestData.swift in Sources */,
+				8A241394217351E7000B87B3 /* ConversationIncomingCell.swift in Sources */,
+				8A2413BF2173AEEE000B87B3 /* UserDefaults+Color.swift in Sources */,
+				8A241395217351E7000B87B3 /* ConversationsCellConfiguration.swift in Sources */,
+				8A241396217351E7000B87B3 /* ConversationCellModel.swift in Sources */,
+				8A241397217351E7000B87B3 /* ConversationCellConfiguration.swift in Sources */,
+				8A241398217351E7000B87B3 /* ConversationOutgoingCell.swift in Sources */,
+				8A2413C32173DC1D000B87B3 /* Themes.m in Sources */,
+				8A241399217351E7000B87B3 /* ThemesViewController.m in Sources */,
+				8A2413B72173A488000B87B3 /* ThemesManager.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8A9B3D7F2157752A00A12815 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -211,7 +389,11 @@
 				8ACE2CBF216001B800782E10 /* ProfileViewController.swift in Sources */,
 				8AE081B521694E7E009ABB20 /* ConversationViewController.swift in Sources */,
 				8AE081A12168CD14009ABB20 /* ConversationListViewController.swift in Sources */,
+				8A2413BE2173AEEE000B87B3 /* UserDefaults+Color.swift in Sources */,
+				8A2413B62173A488000B87B3 /* ThemesManager.swift in Sources */,
+				8A2413C72173E635000B87B3 /* Themes.m in Sources */,
 				8AE081AC2168D5CE009ABB20 /* ConversationsCellModel.swift in Sources */,
+				8A2413B42173A1E6000B87B3 /* ThemesViewController.swift in Sources */,
 				8A9B3D872157752A00A12815 /* AppDelegate.swift in Sources */,
 				5EC1A547AA3A0EF324BC7669 /* TestData.swift in Sources */,
 				8AE081B121694D64009ABB20 /* ConversationIncomingCell.swift in Sources */,
@@ -244,6 +426,48 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		8A2413A0217351E7000B87B3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CODE_SIGN_STYLE = Automatic;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "FintechLarin copy2-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ivanlarin.FintechLarinObj;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG THEMEOBJ";
+				SWIFT_OBJC_BRIDGING_HEADER = "FintechLarin/Utils/Bridging/ThemeObj/FintechLarin-Bridging-Header-Obj.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		8A2413A1217351E7000B87B3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "FintechLarin copy2-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ivanlarin.FintechLarinObj;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "FintechLarin/Utils/Bridging/ThemeObj/FintechLarin-Bridging-Header-Obj.h";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
 		8A9B3D932157752A00A12815 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -359,12 +583,22 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = NO;
 				CODE_SIGN_STYLE = Automatic;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
 				INFOPLIST_FILE = FintechLarin/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ivanlarin.FintechLarin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG THEMESWIFT";
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "FintechLarin/Utils/Bridging/ThemeSwift/FintechLarin-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -374,12 +608,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = NO;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = FintechLarin/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ivanlarin.FintechLarin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "FintechLarin/Utils/Bridging/ThemeSwift/FintechLarin-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -388,6 +626,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		8A24139F217351E7000B87B3 /* Build configuration list for PBXNativeTarget "FintechLarinObjectiveC" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8A2413A0217351E7000B87B3 /* Debug */,
+				8A2413A1217351E7000B87B3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		8A9B3D7E2157752A00A12815 /* Build configuration list for PBXProject "FintechLarin" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

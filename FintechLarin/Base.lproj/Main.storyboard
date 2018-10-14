@@ -89,12 +89,19 @@
                         <viewLayoutGuide key="safeArea" id="KBS-qd-lDc"/>
                     </view>
                     <navigationItem key="navigationItem" title="Tinkoff Chat" id="y74-S5-Dm4">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="circle-user-7" style="done" id="az0-88-3pA">
-                            <inset key="largeContentSizeImageInsets" minX="0.0" minY="5" maxX="0.0" maxY="0.0"/>
-                            <connections>
-                                <segue destination="BYZ-38-t0r" kind="presentation" id="axf-79-Qln"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem title="Theme" id="2Ro-pf-ybT">
+                                <connections>
+                                    <segue destination="xQX-J4-bkQ" kind="presentation" identifier="ThemeViewSegua" id="z4n-oH-RsT"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Item" image="circle-user-7" style="done" id="az0-88-3pA">
+                                <inset key="largeContentSizeImageInsets" minX="0.0" minY="5" maxX="0.0" maxY="0.0"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="presentation" id="axf-79-Qln"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="CaC-fK-7u4" id="jJd-B5-AgK"/>
@@ -248,7 +255,7 @@
                                 </connections>
                             </button>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jaB-99-Fqv">
-                                <rect key="frame" x="0.0" y="44" width="508" height="44"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                                 <items>
                                     <navigationItem title="Профиль" id="2eh-Px-0de">
                                         <barButtonItem key="leftBarButtonItem" systemItem="stop" id="WCE-7O-ANu">
@@ -294,6 +301,73 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-876" y="2574"/>
+        </scene>
+        <!--Themes View Controller-->
+        <scene sceneID="zU1-sF-kTU">
+            <objects>
+                <viewController id="xQX-J4-bkQ" customClass="ThemesViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1kt-ZH-CBU">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g05-jU-Yog">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <color key="backgroundColor" white="0.86556435509999996" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <items>
+                                    <navigationItem title="Настройка темы" id="nkl-4c-5EY">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="stop" id="p4A-aX-gcK">
+                                            <connections>
+                                                <action selector="actionClose:" destination="xQX-J4-bkQ" id="J5j-AX-3wj"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="77" translatesAutoresizingMaskIntoConstraints="NO" id="Ktp-3G-4Oi">
+                                <rect key="frame" x="82.666666666666671" y="326" width="248.66666666666663" height="244"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eqe-Ce-3aL" userLabel="Тема 1">
+                                        <rect key="frame" x="0.0" y="0.0" width="248.66666666666666" height="30"/>
+                                        <color key="backgroundColor" red="0.89938927660000001" green="0.89938927660000001" blue="0.89938927660000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title=" Тема 1"/>
+                                        <connections>
+                                            <action selector="actionTheme1:" destination="xQX-J4-bkQ" eventType="touchUpInside" id="Yjk-XS-iuv"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eiz-VP-UgG">
+                                        <rect key="frame" x="0.0" y="107" width="248.66666666666666" height="30"/>
+                                        <color key="backgroundColor" red="0.89938927660000001" green="0.89938927660000001" blue="0.89938927660000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="Тема 2"/>
+                                        <connections>
+                                            <action selector="actionTheme2:" destination="xQX-J4-bkQ" eventType="touchUpInside" id="jgc-9w-pC9"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V5w-DU-Nd2">
+                                        <rect key="frame" x="0.0" y="214" width="248.66666666666666" height="30"/>
+                                        <color key="backgroundColor" red="0.89938927664974622" green="0.89938927664974622" blue="0.89938927664974622" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="Тема 3"/>
+                                        <connections>
+                                            <action selector="actionTheme3:" destination="xQX-J4-bkQ" eventType="touchUpInside" id="IM7-Jt-eHq"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Ktp-3G-4Oi" firstAttribute="centerY" secondItem="1kt-ZH-CBU" secondAttribute="centerY" id="05Z-PG-9CW"/>
+                            <constraint firstItem="Ktp-3G-4Oi" firstAttribute="centerX" secondItem="1kt-ZH-CBU" secondAttribute="centerX" id="F2M-g0-aoT"/>
+                            <constraint firstAttribute="trailing" secondItem="g05-jU-Yog" secondAttribute="trailing" id="W7v-vZ-iJP"/>
+                            <constraint firstItem="g05-jU-Yog" firstAttribute="leading" secondItem="Bda-Ia-num" secondAttribute="leading" id="e93-vM-uMk"/>
+                            <constraint firstItem="Ktp-3G-4Oi" firstAttribute="width" secondItem="1kt-ZH-CBU" secondAttribute="width" multiplier="0.6" id="rz7-uw-Prj"/>
+                            <constraint firstItem="g05-jU-Yog" firstAttribute="top" secondItem="Bda-Ia-num" secondAttribute="top" id="vkM-Nu-cfL"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Bda-Ia-num"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bw0-B4-SsQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-325" y="834"/>
         </scene>
     </scenes>
     <resources>
