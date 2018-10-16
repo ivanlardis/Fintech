@@ -70,7 +70,8 @@ class ConversationListViewController: UIViewController,
 
             #if THEMEOBJ
 
-            if let viewControlerObj = segue.destination as? ThemesViewController {
+            if let navigationController = segue.destination as? UINavigationController,
+               let viewControlerObj = navigationController.topViewController as? ThemesViewController {
                 viewControlerObj.delegate = self.themeManager
             } else {
                 print("Ошибка в сториборде  ThemesViewController нужно выберать модуль None")
@@ -80,7 +81,8 @@ class ConversationListViewController: UIViewController,
 
             #if THEMESWIFT
 
-            if let viewControlerSwift = segue.destination as? ThemesViewController {
+            if let navigationController = segue.destination as? UINavigationController,
+               let viewControlerSwift = navigationController.topViewController as? ThemesViewController {
                 viewControlerSwift.themeClosure = { [unowned self] (controller, color) in
                     self.themeManager.handleTheme(controller, color)
                 }
