@@ -16,7 +16,10 @@ class ThemesManager: NSObject {
         if let _color = color {
             controller.view.backgroundColor = _color
 
-            UserDefaults.standard.set(_color, forKey: ARG_THEME_COLOR)
+            DispatchQueue.global(qos: .default).async {
+                UserDefaults.standard.set(_color, forKey: self.ARG_THEME_COLOR)
+            }
+
             configureTheme(color: _color)
             reloadColors()
             logThemeChanging(selectedTheme: _color)
@@ -24,8 +27,13 @@ class ThemesManager: NSObject {
     }
 
     func configureTheme() {
-        if let themeColor = UserDefaults.standard.color(forKey: ARG_THEME_COLOR) {
-            configureTheme(color: themeColor)
+
+        DispatchQueue.global(qos: .default).async {
+            if let themeColor = UserDefaults.standard.color(forKey: self.ARG_THEME_COLOR) {
+                DispatchQueue.main.async {
+                    self.configureTheme(color: themeColor)
+                }
+            }
         }
     }
 
