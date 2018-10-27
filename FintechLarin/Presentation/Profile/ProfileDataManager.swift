@@ -10,19 +10,19 @@ import Foundation
 
 class ProfileDataManager {
 
-    private let ARG_PROFILE_NAME = "arg:profileName"
-    private let ARG_PROFILE_DESCRIPTION = "arg:profileDescription"
-    private let ARG_PROFILE_AVATAR = "arg:profileAvatar"
+    private let PROFILE_NAME = "profileName"
+    private let PROFILE_DESCRIPTION = "profileDescription"
+    private let PROFILE_AVATAR = "profileAvatar"
 
     func save(model: ProfileViewModel) -> Bool {
         if let name = model.name {
-            UserDefaults.standard.set(name, forKey: ARG_PROFILE_NAME)
+            UserDefaults.standard.set(name, forKey: PROFILE_NAME)
         }
         if let description = model.description {
-            UserDefaults.standard.set(description, forKey: ARG_PROFILE_DESCRIPTION)
+            UserDefaults.standard.set(description, forKey: PROFILE_DESCRIPTION)
         }
         if let avatar = model.avatar {
-            return saveImage(image: avatar, fileName: ARG_PROFILE_AVATAR)
+            return saveImage(image: avatar, fileName: PROFILE_AVATAR)
         }
 
         return true
@@ -30,10 +30,10 @@ class ProfileDataManager {
 
     func loadData() -> ProfileViewModel {
         let model = ProfileViewModel()
-        model.name = UserDefaults.standard.string(forKey: ARG_PROFILE_NAME)
-        model.description = UserDefaults.standard.string(forKey: ARG_PROFILE_DESCRIPTION)
+        model.name = UserDefaults.standard.string(forKey: PROFILE_NAME)
+        model.description = UserDefaults.standard.string(forKey: PROFILE_DESCRIPTION)
 
-        model.avatar = loadImage(fileName: ARG_PROFILE_AVATAR)
+        model.avatar = loadImage(fileName: PROFILE_AVATAR)
         return model;
     }
 
