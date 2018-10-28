@@ -7,4 +7,5 @@ import Foundation
 
 protocol ConversationCellConfiguration: class {
     var textMessage: String? { get set }
+    var date: Date? { get set }
 }

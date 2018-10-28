@@ -14,6 +14,11 @@ class ProfileDataManager {
     private let PROFILE_DESCRIPTION = "profileDescription"
     private let PROFILE_AVATAR = "profileAvatar"
 
+
+    func getUserName() -> String {
+        return UserDefaults.standard.string(forKey: PROFILE_NAME) ?? UIDevice.current.name
+    }
+
     func save(model: ProfileViewModel) -> Bool {
         if let name = model.name {
             UserDefaults.standard.set(name, forKey: PROFILE_NAME)

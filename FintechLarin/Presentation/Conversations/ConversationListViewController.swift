@@ -8,14 +8,17 @@
 
 import UIKit
 
-class ConversationListViewController: UIViewController,
+class ConversationListViewController:
+        UIViewController,
         UITableViewDataSource,
-        UITableViewDelegate {
+        UITableViewDelegate,
+        IConversationListView {
 
     @IBOutlet weak var tableView: UITableView!
 
     var themeManager: ThemesManager = ThemesManager()
     var data = [TableStruct]()
+    var communicationManager: CommunicationManager?
 
     struct TableStruct {
         var sectionName: String
@@ -24,10 +27,16 @@ class ConversationListViewController: UIViewController,
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        ConversationDI.inject(viewController: self)
+
         self.tableView.dataSource = self
         self.tableView.delegate = self
         self.tableView.rowHeight = UITableView.automaticDimension
-        getData()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        communicationManager?.updateData()
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -47,10 +56,16 @@ class ConversationListViewController: UIViewController,
             conversationCell.online = cellModel.online
             conversationCell.name = cellModel.name
             conversationCell.date = cellModel.date
+            conversationCell.toUserID = cellModel.toUserID
             conversationCell.hasUnreadMessages = cellModel.hasUnreadMessages
-            conversationCell.message = cellModel.message
-        }
 
+            let lastMessage = cellModel.message.sorted {
+                $0.date.timeIntervalSinceNow < $1.date.timeIntervalSinceNow
+            }.last
+            conversationCell.message = lastMessage?.textMessage ?? "No message"
+
+            conversationCell.date = lastMessage?.date
+        }
         return cell
     }
 
@@ -66,20 +81,12 @@ class ConversationListViewController: UIViewController,
         if segue.identifier == "ConversationSegua" {
             let cell = sender as! ConversationsCell
             segue.destination.navigationItem.title = cell.name
-        } else if segue.identifier == "ThemeViewSegua" {
 
-            #if THEMEOBJ
-
-            if let navigationController = segue.destination as? UINavigationController,
-               let viewControlerObj = navigationController.topViewController as? ThemesViewController {
-                viewControlerObj.delegate = self.themeManager
-            } else {
-                print("Ошибка в сториборде  ThemesViewController нужно выберать модуль None")
+            if let viewControler = segue.destination as? ConversationViewController {
+                viewControler.toUserID = cell.toUserID
             }
 
-            #endif
-
-            #if THEMESWIFT
+        } else if segue.identifier == "ThemeViewSegua" {
 
             if let navigationController = segue.destination as? UINavigationController,
                let viewControlerSwift = navigationController.topViewController as? ThemesViewController {
@@ -89,8 +96,6 @@ class ConversationListViewController: UIViewController,
             } else {
                 print("Ошибка в сториборде  ThemesViewController нужно выберать модуль FintechLarin")
             }
-
-            #endif
 
         } else {
             super.prepare(for: segue, sender: sender)
@@ -103,13 +108,34 @@ class ConversationListViewController: UIViewController,
         return cellModel
     }
 
-    func getData() {
-        showData(models: TestData.init().getConversationTestListData())
+    func getLastMessage(model: ConversationsCellModel) -> ConversationCellModel? {
+        return model.message.sorted {
+            $0.date.timeIntervalSinceNow < $1.date.timeIntervalSinceNow
+        }.last
+    }
+
+    func sortedModel(model1: ConversationsCellModel,
+                     model2: ConversationsCellModel) -> Bool {
+
+        let message1 = getLastMessage(model: model1)
+        let message2 = getLastMessage(model: model2)
+
+        if let mess1 = message1,
+           let mess2 = message2 {
+            return mess1.date.timeIntervalSinceNow > mess2.date.timeIntervalSinceNow
+        } else if message1 == nil && message2 == nil {
+            return model1.name < model2.name
+        } else if message2 == nil {
+            return true
+        } else {
+            return false
+        }
     }
 
     func showData(models: [ConversationsCellModel]) {
+
         let sortModels = models.sorted {
-            $0.date.timeIntervalSinceNow < $1.date.timeIntervalSinceNow
+            sortedModel(model1: $0, model2: $1)
         }
 
         let online = sortModels
@@ -132,4 +158,9 @@ class ConversationListViewController: UIViewController,
 
         tableView.reloadData()
     }
+
+    deinit {
+        ConversationDI.reject(viewController: self)
+    }
 }
+

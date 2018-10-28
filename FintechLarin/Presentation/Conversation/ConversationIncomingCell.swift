@@ -10,7 +10,9 @@ import UIKit
 
 class ConversationIncomingCell: UITableViewCell, ConversationCellConfiguration {
 
+    @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var messageLabel: UILabel!
+    let dateFormatter = DateFormatter()
 
     var textMessage: String? {
         didSet {
@@ -19,6 +21,23 @@ class ConversationIncomingCell: UITableViewCell, ConversationCellConfiguration {
             } else {
                 messageLabel.text = textMessage
             }
+        }
+    }
+
+    var date: Date? {
+        didSet {
+            guard let date = date else {
+                timeLabel.text = nil
+                return
+            }
+
+            if Calendar.current.isDateInToday(date) {
+                dateFormatter.dateFormat = "HH:mm"
+            } else {
+                dateFormatter.dateFormat = "dd MMM"
+            }
+
+            timeLabel.text = dateFormatter.string(from: date)
         }
     }
 }

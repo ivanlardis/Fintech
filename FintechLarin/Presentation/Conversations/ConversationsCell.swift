@@ -16,6 +16,9 @@ class ConversationsCell: UITableViewCell, ConversationsCellConfiguration {
     @IBOutlet weak var view: UIView!
     let dateFormatter = DateFormatter()
 
+
+    var toUserID: String?
+
     var message: String? {
         didSet {
             if (message == nil) {

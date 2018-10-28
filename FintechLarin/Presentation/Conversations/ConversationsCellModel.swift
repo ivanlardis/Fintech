@@ -11,20 +11,22 @@ import Foundation
 
 class ConversationsCellModel {
     var name: String
-    var message: String?
+    var toUserID: String
+    var message: [ConversationCellModel]
     var date: Date
     var online: Bool
     var hasUnreadMessages: Bool
 
     init(name: String,
-         message: String?,
          date: Date,
          online: Bool,
-         hasUnreadMessages: Bool) {
+         hasUnreadMessages: Bool,
+         toUserID: String) {
         self.name = name
-        self.message = message
+        message = [ConversationCellModel]()
         self.date = date
         self.online = online
         self.hasUnreadMessages = hasUnreadMessages
+        self.toUserID = toUserID
     }
 }
