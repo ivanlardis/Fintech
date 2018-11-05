@@ -11,8 +11,11 @@ import Foundation
 class DI {
 
     static func inject(viewController: ProfileViewController) {
-        let profileDataManager = ProfileDataManager.init()
-        viewController.operationDataManager = OperationDataManager.init(profileDataManager: profileDataManager)
-        viewController.gCDDataManager = GCDDataManager.init(profileDataManager: profileDataManager)
+//        let profileDataManager = ProfileDataManager.init()
+//        viewController.operationDataManager = OperationDataManager.init(profileDataManager: profileDataManager)
+//        viewController.gCDDataManager = GCDDataManager.init(profileDataManager: profileDataManager)
+
+        let coreDataStack = CoreDataStack.init()
+        viewController.coreDataManager = CoreDataManager.init(coreDataStack: coreDataStack)
     }
 }

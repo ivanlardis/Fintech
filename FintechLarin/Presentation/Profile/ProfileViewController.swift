@@ -17,15 +17,14 @@ class ProfileViewController: UIViewController,
     @IBOutlet weak var photoView: UIImageView!
     @IBOutlet weak var editProfileButtton: UIButton!
     @IBOutlet weak var editPhotoButton: UIButton!
-    @IBOutlet var operationSaveButton: UIButton!
-    @IBOutlet var gcdSaveButton: UIButton!
     @IBOutlet var nameTextFeald: UITextField!
     @IBOutlet var descriptionTextView: UITextView!
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet var coreDataButton: UIButton!
 
-
-    var gCDDataManager: MultithreadingDataManager?
-    var operationDataManager: MultithreadingDataManager?
+    var coreDataManager: CoreDataManager?
+//    var gCDDataManager: MultithreadingDataManager?
+//    var operationDataManager: MultithreadingDataManager?
     let changeModel = ProfileViewModel()
 
     override func viewDidLoad() {
@@ -64,12 +63,8 @@ class ProfileViewController: UIViewController,
         showChoiceImageAlert()
     }
 
-    @IBAction func gcdSaveAction(_ sender: Any) {
-        saveData(dataManager: gCDDataManager)
-    }
-
-    @IBAction func operationSaveAction(_ sender: Any) {
-        saveData(dataManager: operationDataManager)
+    @IBAction func coreDataSaveAction(_ sender: Any) {
+        saveData()
     }
 
     @IBAction func actionClose(_ sender: Any) {
@@ -103,8 +98,7 @@ class ProfileViewController: UIViewController,
         photoView.clipsToBounds = true
 
         initButtonStyle(button: editProfileButtton, cornerRadius: cornerRadius)
-        initButtonStyle(button: operationSaveButton, cornerRadius: cornerRadius)
-        initButtonStyle(button: gcdSaveButton, cornerRadius: cornerRadius)
+        initButtonStyle(button: coreDataButton, cornerRadius: cornerRadius)
 
         descriptionTextView.textContainer.maximumNumberOfLines = 10
         descriptionTextView.textContainer.lineBreakMode = .byTruncatingTail
@@ -113,9 +107,11 @@ class ProfileViewController: UIViewController,
 
     func loadData() {
         showLoading(show: true)
-        operationDataManager?.loadData(callback: { model in
+        coreDataManager?.loadProfile(callBack: { model in
             self.showLoading(show: false)
-            self.showData(model: model)
+            if let profileModel = model {
+                self.showData(model: profileModel)
+            }
         })
     }
 
@@ -131,12 +127,10 @@ class ProfileViewController: UIViewController,
         }
     }
 
-    func saveData(dataManager: MultithreadingDataManager?) {
-
+    func saveData() {
         showLoading(show: true)
-        dataManager?.save(model: changeModel, callback: { success in
+        coreDataManager?.saveProfile(model: changeModel, callBack: { success in
             if success {
-
                 self.showTypeMode(isEdit: false)
                 self.saveButtonMode(isEnabled: false)
 
@@ -154,7 +148,7 @@ class ProfileViewController: UIViewController,
                     self.self.showTypeMode(isEdit: false)
                 }
                 let repeatAction = UIAlertAction(title: "Повторить", style: .default) { (action: UIAlertAction) in
-                    self.saveData(dataManager: dataManager)
+                    self.saveData()
                 }
                 alert.addAction(ok)
                 alert.addAction(repeatAction)
@@ -166,8 +160,7 @@ class ProfileViewController: UIViewController,
 
     func showTypeMode(isEdit: Bool) {
         editProfileButtton.isHidden = isEdit
-        operationSaveButton.isHidden = !isEdit
-        gcdSaveButton.isHidden = !isEdit
+        coreDataButton.isHidden = !isEdit
         editPhotoButton.isHidden = !isEdit
         nameTextFeald.isUserInteractionEnabled = isEdit
         descriptionTextView.isUserInteractionEnabled = isEdit
@@ -176,7 +169,7 @@ class ProfileViewController: UIViewController,
 
         if isEdit {
             descriptionTextView.layer.borderWidth = 0.5
-            descriptionTextView.layer.borderColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+            descriptionTextView.layer.borderColor = #colorLiteral(red:0.8039215803, green:0.8039215803, blue:0.8039215803, alpha:1)
             descriptionTextView.layer.cornerRadius = 10
             print("if")
         } else {
@@ -253,8 +246,7 @@ class ProfileViewController: UIViewController,
     }
 
     func saveButtonMode(isEnabled: Bool) {
-        operationSaveButton.isEnabled = isEnabled
-        gcdSaveButton.isEnabled = isEnabled
+        coreDataButton.isEnabled = isEnabled
     }
 
     @objc func keyboardNotification(notification: NSNotification) {
@@ -266,9 +258,7 @@ class ProfileViewController: UIViewController,
             let animationCurveRaw = animationCurveRawNSN?.uintValue ?? UIView.AnimationOptions.curveEaseInOut.rawValue
             let animationCurve: UIView.AnimationOptions = UIView.AnimationOptions(rawValue: animationCurveRaw)
             if endFrameY >= UIScreen.main.bounds.size.height {
-
                 self.view.frame.origin.y = 0
-
             } else {
                 self.view.frame.origin.y = -(endFrame?.size.height ?? 0)
             }

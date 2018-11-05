@@ -14,6 +14,10 @@
 		8A2413B62173A488000B87B3 /* ThemesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2413B52173A488000B87B3 /* ThemesManager.swift */; };
 		8A2413BE2173AEEE000B87B3 /* UserDefaults+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2413BD2173AEEE000B87B3 /* UserDefaults+Color.swift */; };
 		8A2413C72173E635000B87B3 /* Themes.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A24136C216F609C000B87B3 /* Themes.m */; };
+		8A8CCBCD2190A4B6001BCFE6 /* CoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8A8CCBCB2190A4B6001BCFE6 /* CoreDataModel.xcdatamodeld */; };
+		8A8CCBCF2190A68E001BCFE6 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8CCBCE2190A68E001BCFE6 /* CoreDataStack.swift */; };
+		8A8CCBD12190B15B001BCFE6 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8CCBD02190B15B001BCFE6 /* CoreDataManager.swift */; };
+		8A8CCBD32190C089001BCFE6 /* AppUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8CCBD22190C089001BCFE6 /* AppUser.swift */; };
 		8A9B3D872157752A00A12815 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9B3D862157752A00A12815 /* AppDelegate.swift */; };
 		8A9B3D8C2157752A00A12815 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A9B3D8A2157752A00A12815 /* Main.storyboard */; };
 		8A9B3D8E2157752A00A12815 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A9B3D8D2157752A00A12815 /* Assets.xcassets */; };
@@ -54,6 +58,10 @@
 		8A2413B52173A488000B87B3 /* ThemesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesManager.swift; sourceTree = "<group>"; };
 		8A2413B92173A60B000B87B3 /* ThemesManager+Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ThemesManager+Delegate.swift"; sourceTree = "<group>"; };
 		8A2413BD2173AEEE000B87B3 /* UserDefaults+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Color.swift"; sourceTree = "<group>"; };
+		8A8CCBCC2190A4B6001BCFE6 /* CoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataModel.xcdatamodel; sourceTree = "<group>"; };
+		8A8CCBCE2190A68E001BCFE6 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		8A8CCBD02190B15B001BCFE6 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		8A8CCBD22190C089001BCFE6 /* AppUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUser.swift; sourceTree = "<group>"; };
 		8A9B3D832157752A00A12815 /* FintechLarin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FintechLarin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A9B3D862157752A00A12815 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8A9B3D8B2157752A00A12815 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -162,6 +170,17 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		8A8CCBCA2190A423001BCFE6 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				8A8CCBCB2190A4B6001BCFE6 /* CoreDataModel.xcdatamodeld */,
+				8A8CCBCE2190A68E001BCFE6 /* CoreDataStack.swift */,
+				8A8CCBD02190B15B001BCFE6 /* CoreDataManager.swift */,
+				8A8CCBD22190C089001BCFE6 /* AppUser.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
 		8A9B3D7A2157752A00A12815 = {
 			isa = PBXGroup;
 			children = (
@@ -200,6 +219,7 @@
 		8AA1F88E218591C700B020DA /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				8A8CCBCA2190A423001BCFE6 /* CoreData */,
 				8AA1F88F218591D600B020DA /* Multipeer */,
 			);
 			path = Data;
@@ -356,19 +376,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				8AE081A62168D164009ABB20 /* ConversationsCell.swift in Sources */,
+				8A8CCBCD2190A4B6001BCFE6 /* CoreDataModel.xcdatamodeld in Sources */,
 				8AA1F893218592C200B020DA /* CommunicatorDelegate.swift in Sources */,
 				8ADCA0CC2185AB0D0063400E /* CommunicationManager.swift in Sources */,
 				8ACE2CBF216001B800782E10 /* ProfileViewController.swift in Sources */,
 				8AE081B521694E7E009ABB20 /* ConversationViewController.swift in Sources */,
 				8AE081A12168CD14009ABB20 /* ConversationListViewController.swift in Sources */,
 				8A2413BE2173AEEE000B87B3 /* UserDefaults+Color.swift in Sources */,
+				8A8CCBD32190C089001BCFE6 /* AppUser.swift in Sources */,
 				8ADCA0D42186984C0063400E /* ConversationDI.swift in Sources */,
 				8ADD178D217AFF4F00E189C7 /* GCDDataManager.swift in Sources */,
 				8ADCA0CE2185C7520063400E /* IConversationListView.swift in Sources */,
+				8A8CCBD12190B15B001BCFE6 /* CoreDataManager.swift in Sources */,
 				8AA1F8952185946800B020DA /* MultipeerCommunicator.swift in Sources */,
 				8A2413B62173A488000B87B3 /* ThemesManager.swift in Sources */,
 				8A2413C72173E635000B87B3 /* Themes.m in Sources */,
 				8ADD1793217B005B00E189C7 /* DI.swift in Sources */,
+				8A8CCBCF2190A68E001BCFE6 /* CoreDataStack.swift in Sources */,
 				8ADCA0D02186972E0063400E /* IConversationView.swift in Sources */,
 				8AE081AC2168D5CE009ABB20 /* ConversationsCellModel.swift in Sources */,
 				8A2413B42173A1E6000B87B3 /* ThemesViewController.swift in Sources */,
@@ -585,6 +609,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		8A8CCBCB2190A4B6001BCFE6 /* CoreDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				8A8CCBCC2190A4B6001BCFE6 /* CoreDataModel.xcdatamodel */,
+			);
+			currentVersion = 8A8CCBCC2190A4B6001BCFE6 /* CoreDataModel.xcdatamodel */;
+			path = CoreDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 8A9B3D7B2157752A00A12815 /* Project object */;
 }

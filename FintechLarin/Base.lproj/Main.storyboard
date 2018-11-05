@@ -330,34 +330,19 @@
                                     <action selector="actionProfileEdit:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Z3y-bq-fPd"/>
                                 </connections>
                             </button>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="252" verticalCompressionResistancePriority="752" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zpF-dk-mFu">
-                                <rect key="frame" x="198.33333333333337" y="714" width="168.66666666666663" height="56"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="56" id="CXg-FD-rO1"/>
-                                </constraints>
-                                <state key="normal" title="Operation">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <state key="disabled">
-                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="operationSaveAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9XY-TY-OOy"/>
-                                </connections>
-                            </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="752" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EEN-Ui-qCC">
-                                <rect key="frame" x="8" y="714" width="168.66666666666666" height="56"/>
+                                <rect key="frame" x="8" y="714" width="359" height="56"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="00Q-hA-yft"/>
                                 </constraints>
-                                <state key="normal" title="GCD">
+                                <state key="normal" title="CoreData Save">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
                                 <state key="disabled">
                                     <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="gcdSaveAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="AIa-kK-KGb"/>
+                                    <action selector="coreDataSaveAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KLe-8w-gv1"/>
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="3b9-WU-Wkr">
@@ -370,7 +355,6 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="hSy-hI-9pS" firstAttribute="width" secondItem="zie-az-D9q" secondAttribute="width" multiplier="1:4" id="3RB-LB-YXo"/>
-                            <constraint firstItem="zpF-dk-mFu" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="9:20" id="92R-uf-cku"/>
                             <constraint firstItem="2Mu-MQ-45M" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="AR3-dc-UYb"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="hSy-hI-9pS" secondAttribute="trailing" constant="16" id="BHO-iy-5mo"/>
                             <constraint firstItem="XTI-VP-C7p" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="BPa-4A-at2"/>
@@ -379,19 +363,16 @@
                             <constraint firstItem="zie-az-D9q" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="GRW-E3-AFJ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="8WZ-9F-fA9" secondAttribute="trailing" constant="8" id="IJL-qg-utR"/>
                             <constraint firstItem="EEN-Ui-qCC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="8" id="IUM-sj-mQk"/>
-                            <constraint firstAttribute="trailing" secondItem="zpF-dk-mFu" secondAttribute="trailing" constant="8" id="Ih5-Cm-nu6"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="EEN-Ui-qCC" secondAttribute="bottom" constant="8" id="Jfo-zV-7ny"/>
                             <constraint firstItem="3b9-WU-Wkr" firstAttribute="top" secondItem="xh2-4V-dgu" secondAttribute="bottom" id="Kn6-EQ-v5G"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="zie-az-D9q" secondAttribute="trailing" constant="16" id="Lj6-FR-lIt"/>
-                            <constraint firstItem="zpF-dk-mFu" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="EEN-Ui-qCC" secondAttribute="trailing" constant="2" id="O0R-TZ-JH3"/>
                             <constraint firstItem="XTI-VP-C7p" firstAttribute="top" secondItem="eco-As-OSd" secondAttribute="bottom" id="QcF-2s-NY0"/>
                             <constraint firstItem="2Mu-MQ-45M" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="STd-rL-O0d"/>
                             <constraint firstItem="3b9-WU-Wkr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="TtY-YN-7RP"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="zpF-dk-mFu" secondAttribute="bottom" constant="8" id="WQi-MN-1DM"/>
                             <constraint firstItem="zie-az-D9q" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Zpt-4H-wng"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="EEN-Ui-qCC" secondAttribute="trailing" constant="8" id="a0Y-VI-kDA"/>
                             <constraint firstItem="xh2-4V-dgu" firstAttribute="top" secondItem="XTI-VP-C7p" secondAttribute="bottom" constant="16" id="a7w-up-0D9"/>
                             <constraint firstItem="xh2-4V-dgu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="bnj-nY-99f"/>
-                            <constraint firstItem="zpF-dk-mFu" firstAttribute="top" relation="greaterThanOrEqual" secondItem="3b9-WU-Wkr" secondAttribute="bottom" constant="16" id="cBY-BM-e4c"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="8WZ-9F-fA9" secondAttribute="bottom" constant="8" id="iV9-wA-AxQ"/>
                             <constraint firstItem="eco-As-OSd" firstAttribute="top" secondItem="zie-az-D9q" secondAttribute="bottom" constant="8" id="khe-fO-sOm"/>
                             <constraint firstItem="hSy-hI-9pS" firstAttribute="bottom" secondItem="zie-az-D9q" secondAttribute="bottom" id="mrV-n8-8nD"/>
@@ -402,7 +383,6 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="eco-As-OSd" secondAttribute="trailing" constant="16" id="rY0-7g-ouo"/>
                             <constraint firstItem="EEN-Ui-qCC" firstAttribute="centerY" secondItem="8WZ-9F-fA9" secondAttribute="centerY" id="rsW-S9-GFJ"/>
                             <constraint firstItem="8WZ-9F-fA9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="s1h-td-dMp"/>
-                            <constraint firstItem="EEN-Ui-qCC" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="9:20" priority="750" id="yEq-ug-kFU"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -415,12 +395,11 @@
                     </navigationItem>
                     <connections>
                         <outlet property="activityIndicator" destination="2Mu-MQ-45M" id="E4j-jk-LdX"/>
+                        <outlet property="coreDataButton" destination="EEN-Ui-qCC" id="ArC-f8-9Ap"/>
                         <outlet property="descriptionTextView" destination="3b9-WU-Wkr" id="fNq-yy-6SY"/>
                         <outlet property="editPhotoButton" destination="hSy-hI-9pS" id="KLu-oy-ohp"/>
                         <outlet property="editProfileButtton" destination="8WZ-9F-fA9" id="0wh-E2-w2w"/>
-                        <outlet property="gcdSaveButton" destination="EEN-Ui-qCC" id="ECG-eL-eVL"/>
                         <outlet property="nameTextFeald" destination="XTI-VP-C7p" id="v1Q-n3-vCG"/>
-                        <outlet property="operationSaveButton" destination="zpF-dk-mFu" id="IH2-Tm-CMQ"/>
                         <outlet property="photoView" destination="zie-az-D9q" id="2Ra-tM-GUU"/>
                     </connections>
                 </viewController>
