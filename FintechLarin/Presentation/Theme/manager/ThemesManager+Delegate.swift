@@ -7,8 +7,9 @@
 //
 
 import UIKit
-extension ThemesManager:ThemesViewControllerDelegate{
+
+extension ThemesManager: ThemesViewControllerDelegate {
     func themesViewController(_ controller: ThemesViewController, didSelectTheme selectedTheme: UIColor) {
-      handleTheme(controller, selectedTheme)
+        handleTheme(controller, selectedTheme)
     }
 }

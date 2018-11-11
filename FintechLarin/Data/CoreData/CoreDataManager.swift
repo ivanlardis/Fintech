@@ -17,10 +17,10 @@ class CoreDataManager: NSObject {
         self.coreDataStack = coreDataStack
     }
 
-    func loadProfile(callBack: @escaping (ProfileViewModel?) -> ()) {
+    func loadProfile(callBack: @escaping (ProfileViewModel?) -> Void) {
         if let mainContext = self.coreDataStack.mainContext {
 
-            let userCoreData = CoreDataManager.findOrInsertDefaultUser(in: mainContext);
+            let userCoreData = CoreDataManager.findOrInsertDefaultUser(in: mainContext)
 
             let profile = ProfileViewModel.init()
             profile.description = userCoreData?.userDescription
@@ -34,7 +34,7 @@ class CoreDataManager: NSObject {
         callBack(nil)
     }
 
-    func saveProfile(model: ProfileViewModel, callBack: @escaping (Bool) -> ()) {
+    func saveProfile(model: ProfileViewModel, callBack: @escaping (Bool) -> Void) {
 
         if let saveContext = self.coreDataStack.saveContext {
             saveContext.perform {
@@ -66,7 +66,7 @@ class CoreDataManager: NSObject {
         let defaultAppUser = NSEntityDescription.insertNewObject(forEntityName: "AppUser", into: context) as? AppUser
         defaultAppUser?.userName = "IvanLardis"
         defaultAppUser?.userDescription = "Много текста и т д. Много текста и т д. "
-        defaultAppUser?.userAvatar = UIImage(named: "placeholder-user")!.jpegData(compressionQuality: 1)  
+        defaultAppUser?.userAvatar = UIImage(named: "placeholder-user")?.jpegData(compressionQuality: 1)
 
         return defaultAppUser
     }

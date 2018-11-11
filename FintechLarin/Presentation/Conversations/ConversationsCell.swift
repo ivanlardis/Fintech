@@ -16,12 +16,11 @@ class ConversationsCell: UITableViewCell, ConversationsCellConfiguration {
     @IBOutlet weak var view: UIView!
     let dateFormatter = DateFormatter()
 
-
     var toUserID: String?
 
     var message: String? {
         didSet {
-            if (message == nil) {
+            if message == nil {
                 messageLabel.text = "No messages yet"
             } else {
                 messageLabel.text = message
@@ -61,7 +60,8 @@ class ConversationsCell: UITableViewCell, ConversationsCellConfiguration {
 
     var hasUnreadMessages: Bool = false {
         didSet(isUnreadMessages) {
-            messageLabel.font = hasUnreadMessages ? UIFont.boldSystemFont(ofSize: 18.0) : UIFont.systemFont(ofSize: 16.0)
+            messageLabel.font = hasUnreadMessages ? UIFont.boldSystemFont(ofSize: 18.0) :
+                    UIFont.systemFont(ofSize: 16.0)
         }
     }
 }

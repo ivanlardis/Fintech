@@ -10,24 +10,23 @@ import Foundation
 
 class ProfileDataManager {
 
-    private let PROFILE_NAME = "profileName"
-    private let PROFILE_DESCRIPTION = "profileDescription"
-    private let PROFILE_AVATAR = "profileAvatar"
-
+    private let profileName = "profileName"
+    private let profileDescription = "profileDescription"
+    private let profileAvatar = "profileAvatar"
 
     func getUserName() -> String {
-        return UserDefaults.standard.string(forKey: PROFILE_NAME) ?? UIDevice.current.name
+        return UserDefaults.standard.string(forKey: profileName) ?? UIDevice.current.name
     }
 
     func save(model: ProfileViewModel) -> Bool {
         if let name = model.name {
-            UserDefaults.standard.set(name, forKey: PROFILE_NAME)
+            UserDefaults.standard.set(name, forKey: profileName)
         }
         if let description = model.description {
-            UserDefaults.standard.set(description, forKey: PROFILE_DESCRIPTION)
+            UserDefaults.standard.set(description, forKey: profileDescription)
         }
         if let avatar = model.avatar {
-            return saveImage(image: avatar, fileName: PROFILE_AVATAR)
+            return saveImage(image: avatar, fileName: profileAvatar)
         }
 
         return true
@@ -35,11 +34,11 @@ class ProfileDataManager {
 
     func loadData() -> ProfileViewModel {
         let model = ProfileViewModel()
-        model.name = UserDefaults.standard.string(forKey: PROFILE_NAME)
-        model.description = UserDefaults.standard.string(forKey: PROFILE_DESCRIPTION)
+        model.name = UserDefaults.standard.string(forKey: profileName)
+        model.description = UserDefaults.standard.string(forKey: profileDescription)
 
-        model.avatar = loadImage(fileName: PROFILE_AVATAR)
-        return model;
+        model.avatar = loadImage(fileName: profileAvatar)
+        return model
     }
 
     private func getDocumentsDirectory() -> URL {

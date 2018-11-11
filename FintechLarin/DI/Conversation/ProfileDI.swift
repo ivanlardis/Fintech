@@ -8,7 +8,7 @@
 
 import Foundation
 
-class DI {
+class ProfileDI {
 
     static func inject(viewController: ProfileViewController) {
 //        let profileDataManager = ProfileDataManager.init()

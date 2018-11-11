@@ -5,7 +5,6 @@
 
 import Foundation
 
-
 protocol ConversationsCellConfiguration: class {
     var name: String? { get set }
     var message: String? { get set }

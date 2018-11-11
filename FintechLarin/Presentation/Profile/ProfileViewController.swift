@@ -29,7 +29,7 @@ class ProfileViewController: UIViewController,
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        DI.inject(viewController: self)
+        ProfileDI.inject(viewController: self)
 
         nameTextFeald.addTarget(self, action: #selector(nameTextFealdDidChange(_:)), for: .editingChanged)
         descriptionTextView.delegate = self
@@ -135,22 +135,26 @@ class ProfileViewController: UIViewController,
                 self.saveButtonMode(isEnabled: false)
 
                 let alert = UIAlertController(title: "Данные сохранены", message: nil, preferredStyle: .alert)
-                let ok = UIAlertAction(title: "OK", style: .default)
-                alert.addAction(ok)
+                let okAction = UIAlertAction(title: "OK", style: .default)
+                alert.addAction(okAction)
                 self.present(alert, animated: true, completion: nil)
 
             } else {
-                let alert = UIAlertController(title: "Ошибка", message: "Не удалось сохранить данные", preferredStyle: .alert)
+                let alert = UIAlertController(title: "Ошибка",
+                        message: "Не удалось сохранить данные",
+                        preferredStyle: .alert)
 
-                let ok = UIAlertAction(title: "OK", style: .default) { (action: UIAlertAction) in
+                let okAction = UIAlertAction(title: "OK",
+                        style: .default) { _ in
                     self.loadData()
                     self.saveButtonMode(isEnabled: false)
                     self.self.showTypeMode(isEdit: false)
                 }
-                let repeatAction = UIAlertAction(title: "Повторить", style: .default) { (action: UIAlertAction) in
+                let repeatAction = UIAlertAction(title: "Повторить",
+                        style: .default) { _ in
                     self.saveData()
                 }
-                alert.addAction(ok)
+                alert.addAction(okAction)
                 alert.addAction(repeatAction)
                 self.present(alert, animated: true, completion: nil)
             }
@@ -169,9 +173,8 @@ class ProfileViewController: UIViewController,
 
         if isEdit {
             descriptionTextView.layer.borderWidth = 0.5
-            descriptionTextView.layer.borderColor = #colorLiteral(red:0.8039215803, green:0.8039215803, blue:0.8039215803, alpha:1)
+            descriptionTextView.layer.borderColor = UIColor.gray.cgColor
             descriptionTextView.layer.cornerRadius = 10
-            print("if")
         } else {
             descriptionTextView.layer.borderWidth = 0
         }
@@ -187,11 +190,11 @@ class ProfileViewController: UIViewController,
     func showChoiceImageAlert() {
         let alertController = UIAlertController(title: "Загрузить картинку", message: nil, preferredStyle: .actionSheet)
 
-        let actionOpenGallary = UIAlertAction(title: "Установить из галлереи", style: .default) { (action: UIAlertAction) in
+        let actionOpenGallary = UIAlertAction(title: "Установить из галлереи", style: .default) { _ in
             self.openGallary()
         }
 
-        let actionOpenCamera = UIAlertAction(title: "Сделать фото", style: .default) { (action: UIAlertAction) in
+        let actionOpenCamera = UIAlertAction(title: "Сделать фото", style: .default) { _ in
             self.openCamera()
         }
 
@@ -209,7 +212,7 @@ class ProfileViewController: UIViewController,
     }
 
     func openCamera() {
-        if (UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.camera)) {
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.camera) {
             let picker: UIImagePickerController = UIImagePickerController()
             picker.delegate = self
             picker.allowsEditing = false
@@ -217,9 +220,11 @@ class ProfileViewController: UIViewController,
             picker.cameraCaptureMode = .photo
             present(picker, animated: true, completion: nil)
         } else {
-            let alert = UIAlertController(title: "Камера не найдена", message: "На этом устройстве нет камеры", preferredStyle: .alert)
-            let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
-            alert.addAction(ok)
+            let alert = UIAlertController(title: "Камера не найдена",
+                    message: "На этом устройстве нет камеры",
+                    preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alert.addAction(okAction)
             present(alert, animated: true, completion: nil)
         }
     }
@@ -228,8 +233,9 @@ class ProfileViewController: UIViewController,
         dismiss(animated: true, completion: nil)
     }
 
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
-        let chosenImage: UIImage = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
+    func imagePickerController(_ picker: UIImagePickerController,
+                               didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+        let chosenImage: UIImage? = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
         photoView.contentMode = .scaleToFill
         photoView.image = chosenImage
         saveButtonMode(isEnabled: true)
@@ -253,7 +259,8 @@ class ProfileViewController: UIViewController,
         if let userInfo = notification.userInfo {
             let endFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
             let endFrameY = endFrame?.origin.y ?? 0
-            let duration: TimeInterval = (userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue ?? 0
+            let info = userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as? NSNumber
+            let duration: TimeInterval = info?.doubleValue ?? 0
             let animationCurveRawNSN = userInfo[UIResponder.keyboardAnimationCurveUserInfoKey] as? NSNumber
             let animationCurveRaw = animationCurveRawNSN?.uintValue ?? UIView.AnimationOptions.curveEaseInOut.rawValue
             let animationCurve: UIView.AnimationOptions = UIView.AnimationOptions(rawValue: animationCurveRaw)
@@ -274,5 +281,3 @@ class ProfileViewController: UIViewController,
         NotificationCenter.default.removeObserver(self)
     }
 }
-
-

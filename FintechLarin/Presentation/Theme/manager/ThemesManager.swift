@@ -10,26 +10,26 @@ import Foundation
 
 class ThemesManager: NSObject {
 
-    private let ARG_THEME_COLOR = "arg:themeColor"
+    private let themeColor = "themeColor"
 
     func handleTheme(_ controller: ThemesViewController, _ color: UIColor?) {
-        if let _color = color {
-            controller.view.backgroundColor = _color
+        if let curColor = color {
+            controller.view.backgroundColor = curColor
 
             DispatchQueue.global(qos: .default).async {
-                UserDefaults.standard.set(_color, forKey: self.ARG_THEME_COLOR)
+                UserDefaults.standard.set(curColor, forKey: self.themeColor)
             }
 
-            configureTheme(color: _color)
+            configureTheme(color: curColor)
             reloadColors()
-            logThemeChanging(selectedTheme: _color)
+            logThemeChanging(selectedTheme: curColor)
         }
     }
 
     func configureTheme() {
 
         DispatchQueue.global(qos: .default).async {
-            if let themeColor = UserDefaults.standard.color(forKey: self.ARG_THEME_COLOR) {
+            if let themeColor = UserDefaults.standard.color(forKey: self.themeColor) {
                 DispatchQueue.main.async {
                     self.configureTheme(color: themeColor)
                 }

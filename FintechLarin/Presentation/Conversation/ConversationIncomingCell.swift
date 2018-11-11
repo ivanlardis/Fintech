@@ -16,7 +16,7 @@ class ConversationIncomingCell: UITableViewCell, ConversationCellConfiguration {
 
     var textMessage: String? {
         didSet {
-            if (textMessage == nil) {
+            if textMessage == nil {
                 messageLabel.text = "No messages yet"
             } else {
                 messageLabel.text = textMessage
@@ -41,4 +41,3 @@ class ConversationIncomingCell: UITableViewCell, ConversationCellConfiguration {
         }
     }
 }
-

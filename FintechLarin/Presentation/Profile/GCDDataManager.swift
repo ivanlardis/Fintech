@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 class GCDDataManager: MultithreadingDataManager {
 
     let profileDataManager: ProfileDataManager
@@ -36,6 +35,5 @@ class GCDDataManager: MultithreadingDataManager {
             }
         }
     }
-
 
 }

@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 class ConversationsCellModel {
     var name: String
     var toUserID: String

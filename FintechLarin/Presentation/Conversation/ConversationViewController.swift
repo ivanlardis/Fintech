@@ -49,8 +49,7 @@ class ConversationViewController: UIViewController, UITableViewDataSource, UITab
             buttonSend.isEnabled = false
             communicationManager?.sendMessage(text: message, toUserID: toUser)
         }
-        
-         textFealdMessage.resignFirstResponder()
+        textFealdMessage.resignFirstResponder()
     }
 
     @objc func textFealdMessageDidChange(_ textField: UITextField) {
@@ -73,7 +72,6 @@ class ConversationViewController: UIViewController, UITableViewDataSource, UITab
         return cell
     }
 
-
     func showData(models: ConversationsCellModel) {
         online = models.online
         buttonSend.isEnabled = models.online && (textFealdMessage.text?.count ?? 0 > 0)
@@ -90,7 +88,8 @@ class ConversationViewController: UIViewController, UITableViewDataSource, UITab
         if let userInfo = notification.userInfo {
             let endFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
             let endFrameY = endFrame?.origin.y ?? 0
-            let duration: TimeInterval = (userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue ?? 0
+            let duration: TimeInterval = (userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as? NSNumber)?
+                    .doubleValue ?? 0
             let animationCurveRawNSN = userInfo[UIResponder.keyboardAnimationCurveUserInfoKey] as? NSNumber
             let animationCurveRaw = animationCurveRawNSN?.uintValue ?? UIView.AnimationOptions.curveEaseInOut.rawValue
             let animationCurve: UIView.AnimationOptions = UIView.AnimationOptions(rawValue: animationCurveRaw)
@@ -114,4 +113,3 @@ class ConversationViewController: UIViewController, UITableViewDataSource, UITab
         NotificationCenter.default.removeObserver(self)
     }
 }
-

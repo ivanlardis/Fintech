@@ -9,7 +9,7 @@
 import Foundation
 
 class ProfileViewModel {
-    var name:String?
-    var description:String?
-    var avatar:UIImage?
+    var name: String?
+    var description: String?
+    var avatar: UIImage?
 }

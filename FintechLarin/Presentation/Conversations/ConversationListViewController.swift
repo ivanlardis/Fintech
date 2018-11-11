@@ -8,8 +8,7 @@
 
 import UIKit
 
-class ConversationListViewController:
-        UIViewController,
+class ConversationListViewController: UIViewController,
         UITableViewDataSource,
         UITableViewDelegate,
         IConversationListView {
@@ -78,8 +77,8 @@ class ConversationListViewController:
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "ConversationSegua" {
-            let cell = sender as! ConversationsCell
+        if segue.identifier == "ConversationSegua",
+           let cell = sender as? ConversationsCell {
             segue.destination.navigationItem.title = cell.name
 
             if let viewControler = segue.destination as? ConversationViewController {
@@ -163,4 +162,3 @@ class ConversationListViewController:
         ConversationDI.reject(viewController: self)
     }
 }
-
