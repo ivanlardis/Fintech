@@ -16,22 +16,22 @@ class OperationDataManager: MultithreadingDataManager {
         self.profileDataManager = profileDataManager
     }
 
-    func save(model: ProfileViewModel, callback: @escaping (Bool) -> Void) {
+    func save(model: ProfileModel, callback: @escaping (Bool) -> Void) {
         let queue = OperationQueue()
         queue.addOperation(SaveOperation.init(model: model, callback: callback, profileDataManager: profileDataManager))
     }
 
-    func loadData(callback: @escaping  (ProfileViewModel) -> Void) {
+    func loadData(callback: @escaping  (ProfileModel) -> Void) {
         let queue = OperationQueue()
         queue.addOperation(LoadOperation.init(profileDataManager: profileDataManager, callback: callback))
     }
 
     class LoadOperation: Operation {
-        let callback: (ProfileViewModel) -> Void
+        let callback: (ProfileModel) -> Void
         let profileDataManager: ProfileDataManager
 
         init(profileDataManager: ProfileDataManager,
-             callback: @escaping  (ProfileViewModel) -> Void) {
+             callback: @escaping  (ProfileModel) -> Void) {
             self.callback = callback
             self.profileDataManager = profileDataManager
         }
@@ -46,10 +46,10 @@ class OperationDataManager: MultithreadingDataManager {
 
     class SaveOperation: Operation {
         let callback: (Bool) -> Void
-        let model: ProfileViewModel
+        let model: ProfileModel
         let profileDataManager: ProfileDataManager
 
-        init(model: ProfileViewModel,
+        init(model: ProfileModel,
              callback: @escaping  (Bool) -> Void,
              profileDataManager: ProfileDataManager) {
             self.callback = callback

@@ -1,5 +1,5 @@
 //
-//  ConversationViewController.swift
+//  MessageListViewController.swift
 //  FintechLarin
 //
 //  Created by Иван Lardis on 06/10/2018.
@@ -7,82 +7,58 @@
 //
 
 import UIKit
+import CoreData
 
 class ConversationListViewController: UIViewController,
-        UITableViewDataSource,
+
         UITableViewDelegate,
+        NSFetchedResultsControllerDelegate,
         IConversationListView {
 
     @IBOutlet weak var tableView: UITableView!
 
     var themeManager: ThemesManager = ThemesManager()
     var data = [TableStruct]()
-    var communicationManager: CommunicationManager?
+    var conversationService: ConversationService?
+
+    private lazy var tableViewDataSource: UITableViewDataSource = {
+
+
+        let fetchedResultsController: NSFetchedResultsController<Conversation> = conversationService!.getConversationFRC()
+        fetchedResultsController.delegate = self
+
+        return TableViewDataSource(fetchedResultsController: fetchedResultsController)
+    }()
 
     struct TableStruct {
         var sectionName: String
-        var sectionObjects: [ConversationsCellModel]
+        var sectionObjects: [ConversationModel]
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         ConversationDI.inject(viewController: self)
 
-        self.tableView.dataSource = self
+
+        self.tableView.dataSource = self.tableViewDataSource
         self.tableView.delegate = self
         self.tableView.rowHeight = UITableView.automaticDimension
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        communicationManager?.updateData()
+
     }
 
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return data.count
-    }
-
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return data[section].sectionObjects.count
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ConversationsCell", for: indexPath)
-
-        let cellModel = getCellModel(indexPath: indexPath)
-
-        if let conversationCell = cell as? ConversationsCellConfiguration {
-            conversationCell.online = cellModel.online
-            conversationCell.name = cellModel.name
-            conversationCell.date = cellModel.date
-            conversationCell.toUserID = cellModel.toUserID
-            conversationCell.hasUnreadMessages = cellModel.hasUnreadMessages
-
-            let lastMessage = cellModel.message.sorted {
-                $0.date.timeIntervalSinceNow < $1.date.timeIntervalSinceNow
-            }.last
-            conversationCell.message = lastMessage?.textMessage ?? "No message"
-
-            conversationCell.date = lastMessage?.date
-        }
-        return cell
-    }
-
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return data[section].sectionName
-    }
-
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 30.0
-    }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ConversationSegua",
-           let cell = sender as? ConversationsCell {
+           let cell = sender as? ConversationCell {
             segue.destination.navigationItem.title = cell.name
 
-            if let viewControler = segue.destination as? ConversationViewController {
-                viewControler.toUserID = cell.toUserID
+            if let viewControler = segue.destination as? MessageListViewController,
+               let toUserID = cell.toUserID {
+                viewControler.toUserID = toUserID
             }
 
         } else if segue.identifier == "ThemeViewSegua" {
@@ -101,20 +77,20 @@ class ConversationListViewController: UIViewController,
         }
     }
 
-    private func getCellModel(indexPath: IndexPath) -> ConversationsCellModel {
+    private func getCellModel(indexPath: IndexPath) -> ConversationModel {
         let sectionModel = data[indexPath.section].sectionObjects
         let cellModel = sectionModel[indexPath.row]
         return cellModel
     }
 
-    func getLastMessage(model: ConversationsCellModel) -> ConversationCellModel? {
+    func getLastMessage(model: ConversationModel) -> MessageModel? {
         return model.message.sorted {
             $0.date.timeIntervalSinceNow < $1.date.timeIntervalSinceNow
         }.last
     }
 
-    func sortedModel(model1: ConversationsCellModel,
-                     model2: ConversationsCellModel) -> Bool {
+    func sortedModel(model1: ConversationModel,
+                     model2: ConversationModel) -> Bool {
 
         let message1 = getLastMessage(model: model1)
         let message2 = getLastMessage(model: model2)
@@ -131,7 +107,7 @@ class ConversationListViewController: UIViewController,
         }
     }
 
-    func showData(models: [ConversationsCellModel]) {
+    func showData(models: [ConversationModel]) {
 
         let sortModels = models.sorted {
             sortedModel(model1: $0, model2: $1)
@@ -161,4 +137,35 @@ class ConversationListViewController: UIViewController,
     deinit {
         ConversationDI.reject(viewController: self)
     }
+
+    func controller(
+            _ controller: NSFetchedResultsController<NSFetchRequestResult>,
+            didChange anObject: Any,
+            at indexPath: IndexPath?,
+            for type: NSFetchedResultsChangeType,
+            newIndexPath: IndexPath?) {
+        print("\(#function)")
+        switch type {
+        case .insert:
+            tableView.insertRows(at: [newIndexPath!], with: .automatic)
+        case .move:
+            tableView.deleteRows(at: [indexPath!], with: .automatic)
+            tableView.insertRows(at: [newIndexPath!], with: .automatic)
+        case .update:
+            tableView.reloadRows(at: [indexPath!], with: .automatic)
+        case .delete:
+            tableView.deleteRows(at: [indexPath!], with: .automatic)
+        }
+    }
+
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        print("\(#function)")
+        self.tableView.beginUpdates()
+    }
+
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        print("\(#function)")
+        self.tableView.endUpdates()
+    }
+    
 }

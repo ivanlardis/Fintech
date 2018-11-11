@@ -9,13 +9,31 @@
 import Foundation
 
 class ProfileDI {
-
+    
+    private static var coreDataManager: CoreDataManager?
+    
+    private static func invalidate() {
+        if coreDataManager == nil {
+            let coreDataStack = CoreDataStack.init()
+            coreDataManager = CoreDataManager.init(coreDataStack: coreDataStack)
+        }
+    }
+    
     static func inject(viewController: ProfileViewController) {
 //        let profileDataManager = ProfileDataManager.init()
 //        viewController.operationDataManager = OperationDataManager.init(profileDataManager: profileDataManager)
 //        viewController.gCDDataManager = GCDDataManager.init(profileDataManager: profileDataManager)
-
-        let coreDataStack = CoreDataStack.init()
-        viewController.coreDataManager = CoreDataManager.init(coreDataStack: coreDataStack)
+        invalidate()
+        viewController.coreDataManager = coreDataManager
+    }
+    
+    static func inject(viewController: MessageListViewController) {
+         invalidate()
+        viewController.coreDataManager = coreDataManager
+    }
+    
+    static func inject(viewController: ConversationListViewController) {
+         invalidate()
+        viewController.coreDataManager = coreDataManager
     }
 }

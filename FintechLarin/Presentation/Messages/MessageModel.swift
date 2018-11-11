@@ -1,5 +1,5 @@
 //
-//  ConversationCellModel.swift
+//  MessageModel.swift
 //  FintechLarin
 //
 //  Created by Иван Lardis on 06/10/2018.
@@ -8,16 +8,19 @@
 
 import Foundation
 
-class ConversationCellModel {
+class MessageModel {
     var textMessage: String
     var isIncomingMessage: Bool
     var date: Date
+    var id: String
 
     init(textMessage: String,
          isIncomingMessage: Bool,
-         date: Date) {
+         date: Date,
+         id: String) {
         self.textMessage = textMessage
         self.isIncomingMessage = isIncomingMessage
         self.date = date
+        self.id = id
     }
 }

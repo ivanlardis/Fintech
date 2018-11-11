@@ -11,34 +11,55 @@ import UIKit
 class ConversationDI: NSObject {
 
     private static var communicationManager: CommunicationManager?
+    private static var coreDataManager: CoreDataManager?
+
+    private static var conversationService: ConversationService?
 
     private static func invalidate() {
+        if coreDataManager == nil {
+            let coreDataStack = CoreDataStack.init()
+            coreDataManager = CoreDataManager.init(coreDataStack: coreDataStack)
+        }
         if communicationManager == nil {
             communicationManager = CommunicationManager.init()
         }
+
+        if conversationService == nil {
+            conversationService = ConversationService.init(communicationManager: communicationManager,
+                    coreDataManager: coreDataManager)
+
+            communicationManager?.communicationManagerDelegate = conversationService
+        }
     }
 
-    static func inject(viewController: ConversationViewController) {
+    static func inject(viewController: ProfileViewController) {
+        //        let profileDataManager = ProfileDataManager.init()
+        //        viewController.operationDataManager = OperationDataManager.init(profileDataManager: profileDataManager)
+        //        viewController.gCDDataManager = GCDDataManager.init(profileDataManager: profileDataManager)
         invalidate()
-        viewController.communicationManager = communicationManager
-        communicationManager?.conversationDelegate = viewController
+        viewController.coreDataManager = coreDataManager
     }
 
-    static func reject(viewController: ConversationViewController) {
+    static func inject(viewController: MessageListViewController) {
         invalidate()
-        viewController.communicationManager = nil
-        communicationManager?.conversationDelegate = nil
+        viewController.conversationService = conversationService
     }
 
     static func inject(viewController: ConversationListViewController) {
         invalidate()
-        viewController.communicationManager = communicationManager
-        communicationManager?.conversationListDelegate = viewController
+        viewController.conversationService = conversationService
     }
+
+
+    static func reject(viewController: MessageListViewController) {
+        invalidate()
+        viewController.conversationService = nil
+    }
+
 
     static func reject(viewController: ConversationListViewController) {
         invalidate()
-        viewController.communicationManager = nil
-        communicationManager?.conversationListDelegate = nil
+        viewController.conversationService = nil
+        conversationService?.conversationListDelegate = nil
     }
 }

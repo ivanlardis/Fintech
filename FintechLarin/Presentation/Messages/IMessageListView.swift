@@ -1,5 +1,5 @@
 //
-//  IConversationView.swift
+//  IMessageListView.swift
 //  FintechLarin
 //
 //  Created by Иван Lardis on 29/10/2018.
@@ -8,6 +8,6 @@
 
 import UIKit
 
-protocol IConversationView: class {
-    func showData(models: ConversationsCellModel)
+protocol IMessageListView: class {
+    func showData(models: ConversationModel)
 }

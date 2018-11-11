@@ -9,11 +9,10 @@
 import UIKit
 
 class CommunicationManager: NSObject, CommunicatorDelegate {
-    var data: [String: ConversationsCellModel] = [String: ConversationsCellModel]()
+    var data: [String: ConversationModel] = [String: ConversationModel]()
     var communicator: Communicator
-    weak var conversationDelegate: IConversationView?
-    weak var conversationListDelegate: IConversationListView?
-    var toUserID: String?
+
+    var communicationManagerDelegate: CommunicationManagerDelegate?
 
     override init() {
         let userName: String = ProfileDataManager.init().getUserName()
@@ -26,20 +25,25 @@ class CommunicationManager: NSObject, CommunicatorDelegate {
         if let model = data[userID] {
             model.online = true
         } else {
-            data[userID] = ConversationsCellModel.init(name: userName ?? " Anon",
+            data[userID] = ConversationModel.init(name: userName ?? " Anon",
                     date: Date(),
                     online: true,
                     hasUnreadMessages: false,
-                    toUserID: userID)
+                    conversationId: userID)
         }
 
         updateData()
     }
 
     func sendMessage(text: String, toUserID: String) {
+
+        print("toUserID \(toUserID)")
         if let model = data[toUserID] {
 
-            model.message.append(ConversationCellModel.init(textMessage: text, isIncomingMessage: false, date: Date()))
+            model.message.append(MessageModel.init(textMessage: text,
+                    isIncomingMessage: false,
+                    date: Date(),
+                    id: MultipeerCommunicator.generateMessageId()))
         }
         communicator.sendMessage(string: text, to: toUserID, completionHandler: nil)
 
@@ -47,15 +51,7 @@ class CommunicationManager: NSObject, CommunicatorDelegate {
     }
 
     func updateData() {
-        DispatchQueue.main.async {
-            self.conversationListDelegate?.showData(models: self.data.map {
-                $1
-            })
-            if let userName = self.toUserID,
-               let conversationModel = self.data[userName] {
-                self.conversationDelegate?.showData(models: conversationModel)
-            }
-        }
+        communicationManagerDelegate?.updateData(data: self.data)
     }
 
     func didLostUser(userID: String) {
@@ -73,9 +69,12 @@ class CommunicationManager: NSObject, CommunicatorDelegate {
     func failedToStartAdvertising(error: Error) {
     }
 
-    func didReceiveMessage(text: String, fromUser: String, toUser: String) {
+    func didReceiveMessage(text: String, messageId: String, fromUser: String, toUser: String) {
         if let model = data[fromUser] {
-            model.message.append(ConversationCellModel.init(textMessage: text, isIncomingMessage: true, date: Date()))
+            model.message.append(MessageModel.init(textMessage: text,
+                    isIncomingMessage: true,
+                    date: Date(),
+                    id: messageId))
         }
 
         updateData()

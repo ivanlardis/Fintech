@@ -18,7 +18,7 @@ class ProfileDataManager {
         return UserDefaults.standard.string(forKey: profileName) ?? UIDevice.current.name
     }
 
-    func save(model: ProfileViewModel) -> Bool {
+    func save(model: ProfileModel) -> Bool {
         if let name = model.name {
             UserDefaults.standard.set(name, forKey: profileName)
         }
@@ -32,8 +32,8 @@ class ProfileDataManager {
         return true
     }
 
-    func loadData() -> ProfileViewModel {
-        let model = ProfileViewModel()
+    func loadData() -> ProfileModel {
+        let model = ProfileModel()
         model.name = UserDefaults.standard.string(forKey: profileName)
         model.description = UserDefaults.standard.string(forKey: profileDescription)
 

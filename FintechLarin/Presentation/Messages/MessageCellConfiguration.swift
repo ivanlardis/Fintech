@@ -5,7 +5,7 @@
 
 import Foundation
 
-protocol ConversationCellConfiguration: class {
+protocol MessageCellConfiguration: class {
     var textMessage: String? { get set }
     var date: Date? { get set }
 }

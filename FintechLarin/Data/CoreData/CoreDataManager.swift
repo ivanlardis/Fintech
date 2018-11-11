@@ -17,15 +17,16 @@ class CoreDataManager: NSObject {
         self.coreDataStack = coreDataStack
     }
 
-    func loadProfile(callBack: @escaping (ProfileViewModel?) -> Void) {
+    func loadProfile(callBack: @escaping (ProfileModel?) -> Void) {
         if let mainContext = self.coreDataStack.mainContext {
 
             let userCoreData = CoreDataManager.findOrInsertDefaultUser(in: mainContext)
 
-            let profile = ProfileViewModel.init()
-            profile.description = userCoreData?.userDescription
-            profile.name = userCoreData?.userName
-            if let coreDataAvatar = userCoreData?.userAvatar {
+            let profile = ProfileModel.init()
+            let currentAppUser = userCoreData?.currentUser
+            profile.description = currentAppUser?.userDescription
+            profile.name = currentAppUser?.userName
+            if let coreDataAvatar = currentAppUser?.userAvatar {
                 profile.avatar = UIImage.init(data: coreDataAvatar)
             }
             callBack(profile)
@@ -34,22 +35,120 @@ class CoreDataManager: NSObject {
         callBack(nil)
     }
 
-    func saveProfile(model: ProfileViewModel, callBack: @escaping (Bool) -> Void) {
+    private func updateMessage(context: NSManagedObjectContext,
+                               messageModel: MessageModel,
+                               conversion: Conversation?,
+                               isLast: Bool) {
+
+        let message: Message? = self.findOrCreate(in: context, idModel: messageModel.id)
+        message?.conversationId = conversion?.id
+        message?.conversation = conversion
+        message?.id = messageModel.id
+        print("message text \(messageModel.textMessage)")
+        message?.text = messageModel.textMessage
+        message?.isIncomingMessage = messageModel.isIncomingMessage
+        message?.date = messageModel.date
+        if isLast {
+            conversion?.lastMessage = message
+        }
+    }
+
+    private func updateConversation(context: NSManagedObjectContext, model: ConversationModel) {
+
+        let conversion: Conversation? = self.findOrCreate(in: context, idModel: model.conversationId)
+
+        let user: User? = self.findOrCreate(in: context, idModel: model.conversationId)
+        user?.id = model.conversationId
+
+        user?.userName = model.name
+        conversion?.user = user
+        conversion?.online = model.online
+        conversion?.id = model.conversationId
+
+        let lastMessage = model.message.sorted {
+            $0.date.timeIntervalSinceNow < $1.date.timeIntervalSinceNow
+        }.last
+
+        if let message = lastMessage {
+            updateMessage(context: context,
+                    messageModel: message,
+                    conversion: conversion,
+                    isLast: true)
+        }
+        model.message.forEach { (messageModel: MessageModel) in
+
+            updateMessage(context: context,
+                    messageModel: messageModel,
+                    conversion: conversion,
+                    isLast: false)
+        }
+    }
+
+    func updateConversations(models: [ConversationModel], callBack: @escaping (Bool) -> Void) {
 
         if let saveContext = self.coreDataStack.saveContext {
             saveContext.perform {
-                if let userCoreData = CoreDataManager.findOrInsertDefaultUser(in: saveContext) {
+                models.forEach { (model: ConversationModel) in
+
+                    self.updateConversation(context: saveContext, model: model)
+                }
+
+                self.coreDataStack.performSave(context: saveContext, completionHandler: {
+                    DispatchQueue.main.async {
+                        callBack(true)
+                    }
+                })
+
+            }
+        }
+    }
+
+    func getMessageFRC(id: String) -> NSFetchedResultsController<Message> {
+        let context = coreDataStack.mainContext!
+
+        let request: NSFetchRequest<Message> = Message.fetchRequest()
+
+        let sortDescriptor = NSSortDescriptor(key: "date", ascending: true)
+        request.predicate = NSPredicate(format: "conversationId == %@", id)
+        request.sortDescriptors = [sortDescriptor]
+        let fetchedResultsController = NSFetchedResultsController(fetchRequest: request,
+                managedObjectContext: context,
+                sectionNameKeyPath: nil,
+                cacheName: nil)
+        return fetchedResultsController
+    }
+
+    func getConversationFRC() -> NSFetchedResultsController<Conversation> {
+        let context = coreDataStack.mainContext!
+
+        let request: NSFetchRequest<Conversation> = Conversation.fetchRequest()
+        let sortOnlineDescriptor = NSSortDescriptor(key: "online", ascending: false)
+        let sortDescriptor = NSSortDescriptor(key: "user.userName", ascending: true)
+        request.sortDescriptors = [sortOnlineDescriptor, sortDescriptor]
+        let fetchedResultsController = NSFetchedResultsController(fetchRequest: request,
+                managedObjectContext: context,
+                sectionNameKeyPath: nil,
+                cacheName: nil)
+        return fetchedResultsController
+    }
+
+    func saveProfile(model: ProfileModel, callBack: @escaping (Bool) -> Void) {
+
+        if let saveContext = self.coreDataStack.saveContext {
+            saveContext.perform {
+                if let userCoreData = CoreDataManager.findOrInsertDefaultUser(in: saveContext),
+                   let currentUser = userCoreData.currentUser {
 
                     if let profileName = model.name {
-                        userCoreData.userName = profileName
+                        currentUser.userName = profileName
                     }
 
                     if let profileDescription = model.description {
-                        userCoreData.userDescription = profileDescription
+                        currentUser.userDescription = profileDescription
                     }
 
                     if let profileImage = model.avatar {
-                        userCoreData.userAvatar = profileImage.jpegData(compressionQuality: 1.0)!
+                        currentUser.userAvatar = profileImage.jpegData(compressionQuality: 1.0)!
                     }
 
                     self.coreDataStack.performSave(context: saveContext, completionHandler: {
@@ -64,26 +163,19 @@ class CoreDataManager: NSObject {
 
     static func insertDefaultUser(in context: NSManagedObjectContext) -> AppUser? {
         let defaultAppUser = NSEntityDescription.insertNewObject(forEntityName: "AppUser", into: context) as? AppUser
-        defaultAppUser?.userName = "IvanLardis"
-        defaultAppUser?.userDescription = "Много текста и т д. Много текста и т д. "
-        defaultAppUser?.userAvatar = UIImage(named: "placeholder-user")?.jpegData(compressionQuality: 1)
 
+        let defaultUser = NSEntityDescription.insertNewObject(forEntityName: "User", into: context) as? User
+        defaultUser?.userName = "IvanLardis"
+        defaultUser?.userDescription = "Много текста и т д. Много текста и т д. "
+        defaultUser?.userAvatar = UIImage(named: "placeholder-user")?.jpegData(compressionQuality: 1)
+        defaultAppUser?.currentUser = defaultUser
         return defaultAppUser
     }
 
     static func findOrInsertDefaultUser(in context: NSManagedObjectContext) -> AppUser? {
-        guard let model = context.persistentStoreCoordinator?.managedObjectModel else {
-            print("Model is not available in context!")
-            assert(false)
-            return nil
-        }
-
         var profile: AppUser?
 
-        guard let fetchRequest = AppUser.fetchRequestAppUser(model: model) else {
-            return nil
-        }
-
+        let fetchRequest: NSFetchRequest<AppUser> = AppUser.fetchRequest()
         do {
             let results = try context.fetch(fetchRequest)
             assert(results.count < 2, "Multiple profiles found!")
@@ -99,4 +191,36 @@ class CoreDataManager: NSObject {
         }
         return profile
     }
+
+    func fetchRequestById<T: NSManagedObject>(idModel: String) -> NSFetchRequest<T>? {
+        let fetchRequest: NSFetchRequest<T> = NSFetchRequest<T>(entityName: String(describing: T.self))
+        fetchRequest.predicate = NSPredicate(format: "id == %@", idModel)
+        return fetchRequest
+    }
+
+    func findOrCreate<T: NSManagedObject>(in context: NSManagedObjectContext, idModel: String) -> T? {
+
+        var model: T?
+
+        guard let fetchRequest: NSFetchRequest<T> = self.fetchRequestById(idModel: idModel) else {
+            return nil
+        }
+
+        do {
+            let results = try context.fetch(fetchRequest)
+            assert(results.count < 2, "Multiple Conversation found!")
+            if let foundModel = results.first {
+                model = foundModel
+            }
+        } catch {
+            print("Failed to fetch profile: \(error)")
+        }
+
+        if model == nil {
+            model = NSEntityDescription.insertNewObject(forEntityName: String(describing: T.self), into: context) as? T
+
+        }
+        return model
+    }
 }
+

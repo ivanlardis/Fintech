@@ -16,7 +16,7 @@ class GCDDataManager: MultithreadingDataManager {
         self.profileDataManager = profileDataManager
     }
 
-    func save(model: ProfileViewModel, callback: @escaping  (Bool) -> Void) {
+    func save(model: ProfileModel, callback: @escaping  (Bool) -> Void) {
 
         DispatchQueue.global(qos: .default).async {
             let response = self.profileDataManager.save(model: model)
@@ -27,7 +27,7 @@ class GCDDataManager: MultithreadingDataManager {
         }
     }
 
-    func loadData(callback: @escaping (ProfileViewModel) -> Void) {
+    func loadData(callback: @escaping (ProfileModel) -> Void) {
         DispatchQueue.global(qos: .default).async {
             let model = self.profileDataManager.loadData()
             DispatchQueue.main.async {

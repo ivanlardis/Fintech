@@ -1,5 +1,5 @@
 //
-//  ConversationCellModel.swift
+//  MessageModel.swift
 //  FintechLarin
 //
 //  Created by Иван Lardis on 06/10/2018.
@@ -8,10 +8,11 @@
 
 import Foundation
 
-class ConversationsCellModel {
+class ConversationModel {
+
     var name: String
-    var toUserID: String
-    var message: [ConversationCellModel]
+    var conversationId: String
+    var message: [MessageModel]
     var date: Date
     var online: Bool
     var hasUnreadMessages: Bool
@@ -20,12 +21,12 @@ class ConversationsCellModel {
          date: Date,
          online: Bool,
          hasUnreadMessages: Bool,
-         toUserID: String) {
+         conversationId: String) {
         self.name = name
-        message = [ConversationCellModel]()
+        message = [MessageModel]()
         self.date = date
         self.online = online
         self.hasUnreadMessages = hasUnreadMessages
-        self.toUserID = toUserID
+        self.conversationId = conversationId
     }
 }

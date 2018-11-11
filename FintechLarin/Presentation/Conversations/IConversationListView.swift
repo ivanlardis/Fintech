@@ -9,5 +9,5 @@
 import UIKit
 
 protocol IConversationListView: class {
-func showData(models: [ConversationsCellModel])
+func showData(models: [ConversationModel])
 }

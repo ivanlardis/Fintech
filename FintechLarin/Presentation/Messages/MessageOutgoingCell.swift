@@ -1,5 +1,5 @@
 //
-//  ConversationOutgoingCell.swift
+//  MessageOutgoingCell.swift
 //  FintechLarin
 //
 //  Created by Иван Lardis on 06/10/2018.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ConversationOutgoingCell: UITableViewCell, ConversationCellConfiguration {
+class MessageOutgoingCell: UITableViewCell, MessageCellConfiguration {
 
     let dateFormatter = DateFormatter()
 

@@ -1,5 +1,5 @@
 //
-//  ConversationViewController.swift
+//  MessageListViewController.swift
 //  FintechLarin
 //
 //  Created by Иван Lardis on 06/10/2018.
@@ -7,23 +7,38 @@
 //
 
 import UIKit
+import CoreData
 
-class ConversationViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, IConversationView {
+class MessageListViewController: UIViewController,
+        NSFetchedResultsControllerDelegate,
+        UITableViewDelegate,
+        IMessageListView {
 
-    var communicationManager: CommunicationManager?
     @IBOutlet weak var tableView: UITableView!
-    var data = [ConversationCellModel]()
-    var toUserID: String?
+    var data = [MessageModel]()
+    var toUserID: String = ""
     @IBOutlet var buttonSend: UIButton!
     @IBOutlet var textFealdMessage: UITextField!
     var online = true
+    var conversationService: ConversationService?
+
+    private lazy var tableViewDataSource: UITableViewDataSource = {
+
+        print("to user \(toUserID)")
+        let fetchedResultsController: NSFetchedResultsController<Message> = conversationService!.getMessageFRC(id: toUserID)
+        fetchedResultsController.delegate = self
+
+        return MessageTableViewDataSource(fetchedResultsController: fetchedResultsController)
+    }()
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
         ConversationDI.inject(viewController: self)
-        self.tableView.dataSource = self
 
-        communicationManager?.toUserID = toUserID
+        self.tableView.dataSource = self.tableViewDataSource
+        self.tableView.delegate = self
+
 
         textFealdMessage.addTarget(self, action: #selector(textFealdMessageDidChange(_:)), for: .editingChanged)
 
@@ -36,18 +51,16 @@ class ConversationViewController: UIViewController, UITableViewDataSource, UITab
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        communicationManager?.updateData()
+
     }
 
     @IBAction func actionSend(_ sender: Any) {
         let text = textFealdMessage.text
 
-        if let message = text,
-           let toUser = toUserID {
-
+        if let message = text {
             textFealdMessage.text = nil
             buttonSend.isEnabled = false
-            communicationManager?.sendMessage(text: message, toUserID: toUser)
+            conversationService?.sendMessage(text: message, toUserID: toUserID)
         }
         textFealdMessage.resignFirstResponder()
     }
@@ -56,23 +69,8 @@ class ConversationViewController: UIViewController, UITableViewDataSource, UITab
         buttonSend.isEnabled = online
     }
 
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return data.count
-    }
 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let model = data[indexPath.row]
-        let idCell = model.isIncomingMessage ? "ConversationIncomingCell" : "ConversationOutgoingCell"
-        let cell = tableView.dequeueReusableCell(withIdentifier: idCell, for: indexPath)
-
-        if let conversationCell = cell as? ConversationCellConfiguration {
-            conversationCell.textMessage = model.textMessage
-            conversationCell.date = model.date
-        }
-        return cell
-    }
-
-    func showData(models: ConversationsCellModel) {
+    func showData(models: ConversationModel) {
         online = models.online
         buttonSend.isEnabled = models.online && (textFealdMessage.text?.count ?? 0 > 0)
 
@@ -111,5 +109,35 @@ class ConversationViewController: UIViewController, UITableViewDataSource, UITab
     deinit {
         ConversationDI.reject(viewController: self)
         NotificationCenter.default.removeObserver(self)
+    }
+
+    func controller(
+            _ controller: NSFetchedResultsController<NSFetchRequestResult>,
+            didChange anObject: Any,
+            at indexPath: IndexPath?,
+            for type: NSFetchedResultsChangeType,
+            newIndexPath: IndexPath?) {
+        print("\(#function)")
+        switch type {
+        case .insert:
+            tableView.insertRows(at: [newIndexPath!], with: .automatic)
+        case .move:
+            tableView.deleteRows(at: [indexPath!], with: .automatic)
+            tableView.insertRows(at: [newIndexPath!], with: .automatic)
+        case .update:
+            tableView.reloadRows(at: [indexPath!], with: .automatic)
+        case .delete:
+            tableView.deleteRows(at: [indexPath!], with: .automatic)
+        }
+    }
+
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        print("\(#function)")
+        self.tableView.beginUpdates()
+    }
+
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        print("\(#function)")
+        self.tableView.endUpdates()
     }
 }

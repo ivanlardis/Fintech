@@ -10,8 +10,8 @@ import Foundation
 
 protocol MultithreadingDataManager {
 
-    func save(model: ProfileViewModel, callback: @escaping (Bool) -> Void)
+    func save(model: ProfileModel, callback: @escaping (Bool) -> Void)
 
-    func loadData(callback: @escaping (ProfileViewModel) -> Void)
+    func loadData(callback: @escaping (ProfileModel) -> Void)
 
 }

@@ -1,5 +1,5 @@
 //
-//  ProfileViewModel.swift
+//  ProfileModel.swift
 //  FintechLarin
 //
 //  Created by Иван Lardis on 20/10/2018.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-class ProfileViewModel {
+class ProfileModel {
     var name: String?
     var description: String?
     var avatar: UIImage?

@@ -19,6 +19,6 @@ protocol CommunicatorDelegate: class {
     func failedToStartAdvertising(error: Error)
 
     //messages
-    func didReceiveMessage(text: String, fromUser: String, toUser: String)
+    func didReceiveMessage(text: String, messageId: String, fromUser: String, toUser: String)
 
 }

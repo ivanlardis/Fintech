@@ -1,5 +1,5 @@
 //
-//  ConversationIncomingCell.swift
+//  MessageIncomingCell.swift
 //  FintechLarin
 //
 //  Created by Иван Lardis on 06/10/2018.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ConversationIncomingCell: UITableViewCell, ConversationCellConfiguration {
+class MessageIncomingCell: UITableViewCell, MessageCellConfiguration {
 
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var messageLabel: UILabel!

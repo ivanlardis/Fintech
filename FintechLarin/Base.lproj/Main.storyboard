@@ -23,7 +23,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ConversationsCell" rowHeight="80" id="OM3-e5-fY4" customClass="ConversationsCell" customModule="FintechLarin" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ConversationsCell" rowHeight="80" id="OM3-e5-fY4" customClass="ConversationCell" customModule="FintechLarin" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="55.333333333333343" width="375" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OM3-e5-fY4" id="ghj-Lr-NBj">
@@ -109,10 +109,10 @@
             </objects>
             <point key="canvasLocation" x="-1255" y="1582"/>
         </scene>
-        <!--Conversation View Controller-->
+        <!--Messages View Controller-->
         <scene sceneID="kzT-Of-sAv">
             <objects>
-                <viewController id="x3O-zC-kuh" customClass="ConversationViewController" customModule="FintechLarin" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="x3O-zC-kuh" customClass="MessageListViewController" customModule="FintechLarin" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tYZ-rO-Eep">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -121,7 +121,7 @@
                                 <rect key="frame" x="0.0" y="16" width="375" height="698"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ConversationIncomingCell" rowHeight="60" id="q9i-bD-Zw4" customClass="ConversationIncomingCell" customModule="FintechLarin" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ConversationIncomingCell" rowHeight="60" id="q9i-bD-Zw4" customClass="MessageIncomingCell" customModule="FintechLarin" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="q9i-bD-Zw4" id="ycz-8T-x4e">
@@ -159,7 +159,7 @@
                                             <outlet property="timeLabel" destination="7wt-AY-7UW" id="Q6M-8g-ukB"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ConversationOutgoingCell" rowHeight="60" id="fJn-HH-3PB" customClass="ConversationIncomingCell" customModule="FintechLarin" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ConversationOutgoingCell" rowHeight="60" id="fJn-HH-3PB" customClass="MessageIncomingCell" customModule="FintechLarin" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="88" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fJn-HH-3PB" id="fwX-Zy-fbu">

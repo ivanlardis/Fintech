@@ -25,11 +25,11 @@ class ProfileViewController: UIViewController,
     var coreDataManager: CoreDataManager?
 //    var gCDDataManager: MultithreadingDataManager?
 //    var operationDataManager: MultithreadingDataManager?
-    let changeModel = ProfileViewModel()
+    let changeModel = ProfileModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        ProfileDI.inject(viewController: self)
+        ConversationDI.inject(viewController: self)
 
         nameTextFeald.addTarget(self, action: #selector(nameTextFealdDidChange(_:)), for: .editingChanged)
         descriptionTextView.delegate = self
@@ -115,7 +115,7 @@ class ProfileViewController: UIViewController,
         })
     }
 
-    func showData(model: ProfileViewModel) {
+    func showData(model: ProfileModel) {
         nameTextFeald.text = model.name ?? "Незаполнено"
         descriptionTextView.text = model.description ?? "Незаполнено"
 
