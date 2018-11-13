@@ -23,21 +23,19 @@ class ConversationService: NSObject,
         self.coreDataManager = coreDataManager
     }
 
-
     func getConversationFRC() -> NSFetchedResultsController<Conversation> {
 
         return coreDataManager!.getConversationFRC()
     }
 
-    func getMessageFRC(id: String) -> NSFetchedResultsController<Message> {
+    func getMessageFRC(modelId: String) -> NSFetchedResultsController<Message> {
 
-        return coreDataManager!.getMessageFRC(id: id)
+        return coreDataManager!.getMessageFRC(conversationId: modelId)
     }
 
     func sendMessage(text: String, toUserID: String) {
         communicationManager?.sendMessage(text: text, toUserID: toUserID)
     }
-
 
     func updateData(data: [String: ConversationModel]) {
         print("update!!!")

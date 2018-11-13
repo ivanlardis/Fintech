@@ -59,8 +59,8 @@ class MultipeerCommunicator: NSObject, Communicator {
 
     static func generateMessageId() -> String {
         let string = "\(arc4random_uniform(UINT32_MAX))" +
-                "\(Date.timeIntervalSinceReferenceDate)" +
-                "\(arc4random_uniform(UINT32_MAX))".data(using: .utf8)!.base64EncodedString()
+        "\(Date.timeIntervalSinceReferenceDate)" +
+        "\(arc4random_uniform(UINT32_MAX))".data(using: .utf8)!.base64EncodedString()
         return string
     }
 
@@ -133,7 +133,10 @@ extension MultipeerCommunicator: MCSessionDelegate {
                jsonObjectData["eventType"] as? String == "TextMessage",
                let text = jsonObjectData["text"] as? String,
                let messageId = jsonObjectData["messageId"] as? String {
-                delegate?.didReceiveMessage(text: text, messageId: messageId, fromUser: peerID.displayName, toUser: self.peerId.displayName)
+                delegate?.didReceiveMessage(text: text,
+                        messageId: messageId,
+                        fromUser: peerID.displayName,
+                        toUser: self.peerId.displayName)
             }
         } catch {
             print("Unable to receive data")

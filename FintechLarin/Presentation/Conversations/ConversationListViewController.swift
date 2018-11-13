@@ -23,8 +23,7 @@ class ConversationListViewController: UIViewController,
 
     private lazy var tableViewDataSource: UITableViewDataSource = {
 
-
-        let fetchedResultsController: NSFetchedResultsController<Conversation> = conversationService!.getConversationFRC()
+        let fetchedResultsController = conversationService!.getConversationFRC()
         fetchedResultsController.delegate = self
 
         return TableViewDataSource(fetchedResultsController: fetchedResultsController)
@@ -39,7 +38,6 @@ class ConversationListViewController: UIViewController,
         super.viewDidLoad()
         ConversationDI.inject(viewController: self)
 
-
         self.tableView.dataSource = self.tableViewDataSource
         self.tableView.delegate = self
         self.tableView.rowHeight = UITableView.automaticDimension
@@ -50,7 +48,6 @@ class ConversationListViewController: UIViewController,
 
     }
 
-
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ConversationSegua",
            let cell = sender as? ConversationCell {
@@ -59,6 +56,7 @@ class ConversationListViewController: UIViewController,
             if let viewControler = segue.destination as? MessageListViewController,
                let toUserID = cell.toUserID {
                 viewControler.toUserID = toUserID
+                viewControler.online = cell.online
             }
 
         } else if segue.identifier == "ThemeViewSegua" {
@@ -167,5 +165,4 @@ class ConversationListViewController: UIViewController,
         print("\(#function)")
         self.tableView.endUpdates()
     }
-    
 }

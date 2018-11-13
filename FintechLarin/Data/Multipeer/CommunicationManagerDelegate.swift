@@ -10,8 +10,5 @@ import UIKit
 
 protocol CommunicationManagerDelegate: class {
 
-    //discovering
     func updateData(data: [String: ConversationModel])
-
-
 }

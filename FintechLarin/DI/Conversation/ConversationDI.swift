@@ -33,9 +33,6 @@ class ConversationDI: NSObject {
     }
 
     static func inject(viewController: ProfileViewController) {
-        //        let profileDataManager = ProfileDataManager.init()
-        //        viewController.operationDataManager = OperationDataManager.init(profileDataManager: profileDataManager)
-        //        viewController.gCDDataManager = GCDDataManager.init(profileDataManager: profileDataManager)
         invalidate()
         viewController.coreDataManager = coreDataManager
     }
@@ -50,12 +47,10 @@ class ConversationDI: NSObject {
         viewController.conversationService = conversationService
     }
 
-
     static func reject(viewController: MessageListViewController) {
         invalidate()
         viewController.conversationService = nil
     }
-
 
     static func reject(viewController: ConversationListViewController) {
         invalidate()

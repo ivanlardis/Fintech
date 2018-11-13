@@ -12,15 +12,15 @@ class MessageModel {
     var textMessage: String
     var isIncomingMessage: Bool
     var date: Date
-    var id: String
+    var messageId: String
 
     init(textMessage: String,
          isIncomingMessage: Bool,
          date: Date,
-         id: String) {
+         messageId: String) {
         self.textMessage = textMessage
         self.isIncomingMessage = isIncomingMessage
         self.date = date
-        self.id = id
+        self.messageId = messageId
     }
 }

@@ -109,7 +109,7 @@
             </objects>
             <point key="canvasLocation" x="-1255" y="1582"/>
         </scene>
-        <!--Messages View Controller-->
+        <!--Message List View Controller-->
         <scene sceneID="kzT-Of-sAv">
             <objects>
                 <viewController id="x3O-zC-kuh" customClass="MessageListViewController" customModule="FintechLarin" customModuleProvider="target" sceneMemberID="viewController">
@@ -129,7 +129,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="PEj-Xc-Ihj">
-                                                    <rect key="frame" x="317.33333333333326" y="8" width="41.666666666666686" height="44"/>
+                                                    <rect key="frame" x="16" y="8" width="41.666666666666657" height="44"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="252" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="Label" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RRD-FC-sOK">
                                                             <rect key="frame" x="0.0" y="0.0" width="41.666666666666664" height="20.333333333333332"/>
@@ -148,8 +148,8 @@
                                                 </stackView>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="PEj-Xc-Ihj" firstAttribute="leading" secondItem="ycz-8T-x4e" secondAttribute="leading" constant="16" id="CCN-CB-NnB"/>
                                                 <constraint firstItem="PEj-Xc-Ihj" firstAttribute="top" secondItem="ycz-8T-x4e" secondAttribute="top" constant="8" id="Flc-g3-48P"/>
-                                                <constraint firstAttribute="trailing" secondItem="PEj-Xc-Ihj" secondAttribute="trailing" constant="16" id="Wsc-Tu-cHW"/>
                                                 <constraint firstItem="PEj-Xc-Ihj" firstAttribute="width" relation="lessThanOrEqual" secondItem="ycz-8T-x4e" secondAttribute="width" multiplier="3:4" id="bQY-Ej-nWr"/>
                                                 <constraint firstAttribute="bottom" secondItem="PEj-Xc-Ihj" secondAttribute="bottom" constant="8" id="kVs-VN-Erm"/>
                                             </constraints>
@@ -167,7 +167,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="sP6-wO-emJ">
-                                                    <rect key="frame" x="16" y="8" width="41.666666666666657" height="44"/>
+                                                    <rect key="frame" x="317.33333333333326" y="8" width="41.666666666666686" height="44"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="252" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W57-q9-vRC">
                                                             <rect key="frame" x="0.0" y="0.0" width="41.666666666666664" height="20.333333333333332"/>
@@ -187,7 +187,7 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="sP6-wO-emJ" secondAttribute="bottom" constant="8" id="Gcd-nH-BNs"/>
-                                                <constraint firstItem="sP6-wO-emJ" firstAttribute="leading" secondItem="fwX-Zy-fbu" secondAttribute="leading" constant="16" id="Hg4-0G-Nji"/>
+                                                <constraint firstAttribute="trailing" secondItem="sP6-wO-emJ" secondAttribute="trailing" constant="16" id="UJy-AM-kHG"/>
                                                 <constraint firstItem="sP6-wO-emJ" firstAttribute="width" relation="lessThanOrEqual" secondItem="fwX-Zy-fbu" secondAttribute="width" multiplier="3:4" id="hcA-dp-JDq"/>
                                                 <constraint firstItem="sP6-wO-emJ" firstAttribute="top" secondItem="fwX-Zy-fbu" secondAttribute="top" constant="8" id="jft-q8-Y4H"/>
                                             </constraints>

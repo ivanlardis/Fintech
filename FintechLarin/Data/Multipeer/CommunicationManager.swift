@@ -12,7 +12,7 @@ class CommunicationManager: NSObject, CommunicatorDelegate {
     var data: [String: ConversationModel] = [String: ConversationModel]()
     var communicator: Communicator
 
-    var communicationManagerDelegate: CommunicationManagerDelegate?
+    weak var communicationManagerDelegate: CommunicationManagerDelegate?
 
     override init() {
         let userName: String = ProfileDataManager.init().getUserName()
@@ -43,7 +43,7 @@ class CommunicationManager: NSObject, CommunicatorDelegate {
             model.message.append(MessageModel.init(textMessage: text,
                     isIncomingMessage: false,
                     date: Date(),
-                    id: MultipeerCommunicator.generateMessageId()))
+                    messageId: MultipeerCommunicator.generateMessageId()))
         }
         communicator.sendMessage(string: text, to: toUserID, completionHandler: nil)
 
@@ -74,7 +74,7 @@ class CommunicationManager: NSObject, CommunicatorDelegate {
             model.message.append(MessageModel.init(textMessage: text,
                     isIncomingMessage: true,
                     date: Date(),
-                    id: messageId))
+                    messageId: messageId))
         }
 
         updateData()

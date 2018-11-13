@@ -11,8 +11,7 @@ import CoreData
 
 class MessageListViewController: UIViewController,
         NSFetchedResultsControllerDelegate,
-        UITableViewDelegate,
-        IMessageListView {
+        UITableViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     var data = [MessageModel]()
@@ -24,13 +23,12 @@ class MessageListViewController: UIViewController,
 
     private lazy var tableViewDataSource: UITableViewDataSource = {
 
-        print("to user \(toUserID)")
-        let fetchedResultsController: NSFetchedResultsController<Message> = conversationService!.getMessageFRC(id: toUserID)
+        let fetchedResultsController: NSFetchedResultsController<Message> = conversationService!
+                .getMessageFRC(modelId: toUserID)
         fetchedResultsController.delegate = self
 
         return MessageTableViewDataSource(fetchedResultsController: fetchedResultsController)
     }()
-
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,18 +37,13 @@ class MessageListViewController: UIViewController,
         self.tableView.dataSource = self.tableViewDataSource
         self.tableView.delegate = self
 
-
         textFealdMessage.addTarget(self, action: #selector(textFealdMessageDidChange(_:)), for: .editingChanged)
 
         NotificationCenter.default.addObserver(self,
                 selector: #selector(self.keyboardNotification(notification:)),
                 name: UIResponder.keyboardWillChangeFrameNotification,
                 object: nil)
-
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+        invalidateData()
 
     }
 
@@ -69,17 +62,8 @@ class MessageListViewController: UIViewController,
         buttonSend.isEnabled = online
     }
 
-
-    func showData(models: ConversationModel) {
-        online = models.online
-        buttonSend.isEnabled = models.online && (textFealdMessage.text?.count ?? 0 > 0)
-
-        let sortModels = models.message.sorted {
-            $0.date.timeIntervalSinceNow < $1.date.timeIntervalSinceNow
-        }
-        data = sortModels
-//        tableView.contentOffset =  CGPoint.init(x: 0, y: CGFloat.greatestFiniteMagnitude)
-        tableView.reloadData()
+    func invalidateData() {
+        buttonSend.isEnabled = online && (textFealdMessage.text?.count ?? 0 > 0)
     }
 
     @objc func keyboardNotification(notification: NSNotification) {
@@ -118,6 +102,12 @@ class MessageListViewController: UIViewController,
             for type: NSFetchedResultsChangeType,
             newIndexPath: IndexPath?) {
         print("\(#function)")
+
+        if let message = anObject as? Message,
+           let online = message.conversation?.online {
+            self.online = online
+            invalidateData()
+        }
         switch type {
         case .insert:
             tableView.insertRows(at: [newIndexPath!], with: .automatic)

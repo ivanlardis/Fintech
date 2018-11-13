@@ -40,11 +40,10 @@ class CoreDataManager: NSObject {
                                conversion: Conversation?,
                                isLast: Bool) {
 
-        let message: Message? = self.findOrCreate(in: context, idModel: messageModel.id)
+        let message: Message? = self.findOrCreate(in: context, idModel: messageModel.messageId)
         message?.conversationId = conversion?.id
         message?.conversation = conversion
-        message?.id = messageModel.id
-        print("message text \(messageModel.textMessage)")
+        message?.id = messageModel.messageId
         message?.text = messageModel.textMessage
         message?.isIncomingMessage = messageModel.isIncomingMessage
         message?.date = messageModel.date
@@ -103,13 +102,13 @@ class CoreDataManager: NSObject {
         }
     }
 
-    func getMessageFRC(id: String) -> NSFetchedResultsController<Message> {
+    func getMessageFRC(conversationId: String) -> NSFetchedResultsController<Message> {
         let context = coreDataStack.mainContext!
 
         let request: NSFetchRequest<Message> = Message.fetchRequest()
 
         let sortDescriptor = NSSortDescriptor(key: "date", ascending: true)
-        request.predicate = NSPredicate(format: "conversationId == %@", id)
+        request.predicate = NSPredicate(format: "conversationId == %@", conversationId)
         request.sortDescriptors = [sortDescriptor]
         let fetchedResultsController = NSFetchedResultsController(fetchRequest: request,
                 managedObjectContext: context,
@@ -132,6 +131,41 @@ class CoreDataManager: NSObject {
         return fetchedResultsController
     }
 
+    // MARK: получения беседы (Conversation) с определенным conversationId
+    // получения message с определенным id
+    // получения пользователя с определенным userId
+    func fetchRequestById<T: NSManagedObject>(idModel: String) -> NSFetchRequest<T>? {
+        let fetchRequest: NSFetchRequest<T> = NSFetchRequest<T>(entityName: String(describing: T.self))
+        fetchRequest.predicate = NSPredicate(format: "id == %@", idModel)
+        return fetchRequest
+    }
+
+    func findOrCreate<T: NSManagedObject>(in context: NSManagedObjectContext, idModel: String) -> T? {
+
+        var model: T?
+
+        guard let fetchRequest: NSFetchRequest<T> = self.fetchRequestById(idModel: idModel) else {
+            return nil
+        }
+
+        do {
+            let results = try context.fetch(fetchRequest)
+            assert(results.count < 2, "Multiple Conversation found!")
+            if let foundModel = results.first {
+                model = foundModel
+            }
+        } catch {
+            print("Failed to fetch profile: \(error)")
+        }
+
+        if model == nil {
+            model = NSEntityDescription.insertNewObject(forEntityName: String(describing: T.self), into: context) as? T
+
+        }
+        return model
+    }
+
+    // MARK: - созранение профиля
     func saveProfile(model: ProfileModel, callBack: @escaping (Bool) -> Void) {
 
         if let saveContext = self.coreDataStack.saveContext {
@@ -192,35 +226,4 @@ class CoreDataManager: NSObject {
         return profile
     }
 
-    func fetchRequestById<T: NSManagedObject>(idModel: String) -> NSFetchRequest<T>? {
-        let fetchRequest: NSFetchRequest<T> = NSFetchRequest<T>(entityName: String(describing: T.self))
-        fetchRequest.predicate = NSPredicate(format: "id == %@", idModel)
-        return fetchRequest
-    }
-
-    func findOrCreate<T: NSManagedObject>(in context: NSManagedObjectContext, idModel: String) -> T? {
-
-        var model: T?
-
-        guard let fetchRequest: NSFetchRequest<T> = self.fetchRequestById(idModel: idModel) else {
-            return nil
-        }
-
-        do {
-            let results = try context.fetch(fetchRequest)
-            assert(results.count < 2, "Multiple Conversation found!")
-            if let foundModel = results.first {
-                model = foundModel
-            }
-        } catch {
-            print("Failed to fetch profile: \(error)")
-        }
-
-        if model == nil {
-            model = NSEntityDescription.insertNewObject(forEntityName: String(describing: T.self), into: context) as? T
-
-        }
-        return model
-    }
 }
-
