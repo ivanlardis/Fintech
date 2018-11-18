@@ -7,37 +7,29 @@
 //
 
 import UIKit
+import Router
+import ThemeModule
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    func application(_ application: UIApplication,
-                     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
 
-        ThemesManager.init().configureTheme()
-
-        return true
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        RouterAssembly.initRouter(router: AppRouter())
+        ThemeСonfigurator.configurate()
+        return startFirstScreen()
     }
 
-    func applicationWillResignActive(_ application: UIApplication) {
-
+    func startFirstScreen() -> Bool {
+        return RouterAssembly.getRouter().handle(AppScreens.Conversation) {
+            viewController in
+            self.window?.rootViewController = viewController
+            self.window?.makeKeyAndVisible()
+        }
     }
 
-    func applicationDidEnterBackground(_ application: UIApplication) {
 
-    }
-
-    func applicationWillEnterForeground(_ application: UIApplication) {
-
-    }
-
-    func applicationDidBecomeActive(_ application: UIApplication) {
-
-    }
-
-    func applicationWillTerminate(_ application: UIApplication) {
-
-    }
 }

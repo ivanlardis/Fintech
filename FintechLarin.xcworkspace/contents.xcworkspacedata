@@ -5,6 +5,24 @@
       location = "group:FintechLarin.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:ThemeModule/ThemeModule.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:ConversationModule/ConversationModule.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:ProfileModule/ProfileModule.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Router/Router.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:ServiceLayer/ServiceLayer.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:CoreLayer/CoreLayer.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:Pods/Pods.xcodeproj">
    </FileRef>
 </Workspace>
