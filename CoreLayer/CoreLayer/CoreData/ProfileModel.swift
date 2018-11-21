@@ -10,8 +10,8 @@ import UIKit
 
 public class ProfileModel {
     public init(){
-
     }
+    
     public  var name: String?
     public var description: String?
     public var avatar: UIImage?

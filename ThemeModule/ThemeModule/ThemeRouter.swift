@@ -12,22 +12,22 @@ import Router
 public class ThemeRouter: IRouter {
     public init() {
     }
-
+    
     public func handle(_ screen: AppScreens,
                        action: (UIViewController) -> Void
-    ) -> Bool {
-
+        ) -> Bool {
+        
         if (screen == AppScreens.Theme) {
             let bundle = Bundle(identifier: "ivanlarin.ThemeModule")
             let storyboard = UIStoryboard(name: "Theme", bundle: bundle)
             if let controller = storyboard.instantiateInitialViewController() {
-
+                
                 action(controller)
-
+                
                 return true
             }
         }
-
+        
         return false
     }
 }

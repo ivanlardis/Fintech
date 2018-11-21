@@ -10,8 +10,6 @@ import UIKit
 
 public protocol IServiceLayerAssembly: class {
     func getThemesService() -> IThemesService
-
     func getProfileService() -> IProfileService
-
     func getConversationService() -> IConversationService
 }

@@ -9,8 +9,9 @@
 import UIKit
 import CoreLayer
 public protocol  IProfileView: class {
- var profilePresenter  : IProfilePresenter? { get set }
-     func showLoading(show: Bool)
+    var profilePresenter  : IProfilePresenter? { get set }
+    
+    func showLoading(show: Bool)
     func showData(model: ProfileModel)
-      func showSaveAction(success:Bool) 
+    func showSaveAction(success:Bool)
 }

@@ -9,6 +9,5 @@
 import UIKit
 
 public protocol ICommunicationDelegate: class {
-
     func updateData(data: [String: ConversationModel])
 }

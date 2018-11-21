@@ -12,16 +12,14 @@ public class ProfileRouter : IRouter{
     public   init(){}
     
     public func handle (_ screen : AppScreens,
-                         action : (UIViewController)->Void) -> Bool{
-        
+                        action : (UIViewController)->Void) -> Bool{
         if (screen == AppScreens.Profile ){
             let bundle = Bundle(identifier: "ivanlarin.ProfileModule")
             let storyboard = UIStoryboard(name: "Profile", bundle: bundle)
             let controller = storyboard.instantiateInitialViewController()!
-          action(controller )
+            action(controller )
             return true
         }
-        
         return false
     }
 }

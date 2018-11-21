@@ -9,12 +9,12 @@
 import UIKit
 
 class MessageOutgoingCell: UITableViewCell, MessageCellConfiguration {
-
+    
     let dateFormatter = DateFormatter()
-
+    
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var messageLabel: UILabel!
-
+    
     var textMessage: String? {
         didSet {
             if textMessage == nil {
@@ -24,20 +24,20 @@ class MessageOutgoingCell: UITableViewCell, MessageCellConfiguration {
             }
         }
     }
-
+    
     var date: Date? {
         didSet {
             guard let date = date else {
                 timeLabel.text = nil
                 return
             }
-
+            
             if Calendar.current.isDateInToday(date) {
                 dateFormatter.dateFormat = "HH:mm"
             } else {
                 dateFormatter.dateFormat = "dd MMM"
             }
-
+            
             timeLabel.text = dateFormatter.string(from: date)
         }
     }

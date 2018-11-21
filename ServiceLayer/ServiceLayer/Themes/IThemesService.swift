@@ -9,7 +9,6 @@
 import UIKit
 
 public protocol IThemesService: class {
-
     func saveThemeCollor(color: UIColor)
     func getThemeCollor()->UIColor
 }

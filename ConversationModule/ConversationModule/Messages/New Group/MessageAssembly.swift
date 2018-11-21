@@ -13,13 +13,13 @@ import Router
 class MessageAssembly: NSObject {
     func inject(view: IMessageListView) {
         let service: IConversationService = ServiceLayerAssemblyFactory.getServiceLayerAssembly()
-                .getConversationService()
+            .getConversationService()
         let interactor: IMessageInteractor = MessageInteractor.init(service: service)
         let router: IRouter = RouterAssembly.getRouter()
-
+        
         let presenter: IMessagePresenter = MessagePresenter.init(interactor: interactor,
-                router: router,
-                view: view)
+                                                                 router: router,
+                                                                 view: view)
         view.presenter = presenter
     }
 }

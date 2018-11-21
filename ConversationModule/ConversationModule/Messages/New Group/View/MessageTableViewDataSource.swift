@@ -20,7 +20,7 @@ import CoreLayer
 
 class MessageTableViewDataSource: NSObject, UITableViewDataSource {
     let fetchedResultsController: NSFetchedResultsController<Message>
-
+    
     init(fetchedResultsController: NSFetchedResultsController<Message>) {
         self.fetchedResultsController = fetchedResultsController
         do {
@@ -28,7 +28,7 @@ class MessageTableViewDataSource: NSObject, UITableViewDataSource {
         } catch {
         }
     }
-
+    
     // MARK: - UITableViewDataSource
     func tableView(_ tableView: UITableView,
                    numberOfRowsInSection section: Int) -> Int {
@@ -38,12 +38,12 @@ class MessageTableViewDataSource: NSObject, UITableViewDataSource {
         let sectionInfo = sections[section]
         return sectionInfo.numberOfObjects
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let message = self.fetchedResultsController.object(at: indexPath)
         let idCell = message.isIncomingMessage ? "ConversationIncomingCell" : "ConversationOutgoingCell"
         let cell = tableView.dequeueReusableCell(withIdentifier: idCell, for: indexPath)
-
+        
         if let conversationCell = cell as? MessageCellConfiguration {
             conversationCell.textMessage = message.text
             conversationCell.date = message.date

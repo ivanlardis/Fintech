@@ -18,8 +18,8 @@ class ThemeAssembly: NSObject {
         let router: IRouter = RouterAssembly.getRouter()
         
         let presenter: IThemesPresenter = ThemesPresenter.init(themesInteractor: interactor,
-                                                                router: router,
-                                                                view: view)
+                                                               router: router,
+                                                               view: view)
         view.themesPresenter = presenter
     }
 }

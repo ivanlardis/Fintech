@@ -13,7 +13,7 @@ import ServiceLayer
 import Router
 
 class AssemblyProfile: NSObject {
-
+    
     func inject(view: IProfileView) {
         let service: IProfileService = ServiceLayerAssemblyFactory.getServiceLayerAssembly().getProfileService()
         let interactor: IProfileInteractor = ProfileInteractor.init(profileService: service)
@@ -21,5 +21,4 @@ class AssemblyProfile: NSObject {
         let presenter: IProfilePresenter = ProfilePresenter.init(profileInteractor: interactor, router: router, view: view)
         view.profilePresenter = presenter
     }
-
 }

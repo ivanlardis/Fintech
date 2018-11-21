@@ -12,17 +12,16 @@ import CoreLayer
 
 class ProfileInteractor: IProfileInteractor {
     let profileService: IProfileService
-
+    
     init(profileService: IProfileService) {
         self.profileService = profileService
     }
-
+    
     func saveProfile(model: ProfileModel) -> Bool {
         return self.profileService.saveProfile(model: model)
     }
-
+    
     func loadProfile() -> ProfileModel? {
         return self.profileService.loadProfile()
     }
-
 }

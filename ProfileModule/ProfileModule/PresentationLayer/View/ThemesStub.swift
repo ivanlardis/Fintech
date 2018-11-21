@@ -10,11 +10,11 @@ import UIKit
 
 class ThemesStub: IThemesView {
     public var themesPresenter  : IThemesPresenter?
-   
+    
     init() {
         ThemeAssembly().inject(view: self)
     }
-
+    
     public func configurate() {
         themesPresenter?.loadTheme()
     }

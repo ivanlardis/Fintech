@@ -22,12 +22,10 @@ ICommunicationDelegate {
     }
     
     public func getConversationFRC() -> NSFetchedResultsController<Conversation> {
-        
         return storage.getConversationFRC()
     }
     
     public func getMessageFRC(conversationId: String) -> NSFetchedResultsController<Message> {
-        
         return storage.getMessageFRC(conversationId: conversationId)
     }
     
@@ -36,7 +34,6 @@ ICommunicationDelegate {
     }
     
     public func updateData(data: [String: ConversationModel]) {
-        print("updateData")
         storage.updateConversations(models: data.map {
             $1
         })

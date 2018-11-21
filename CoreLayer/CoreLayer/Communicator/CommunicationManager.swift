@@ -22,8 +22,6 @@ class CommunicationManager: NSObject, CommunicatorDelegate, ICommunicationManage
     }
 
     func didFoundUser(userID: String, userName: String?) {
-
-        print("didFoundUser")
         if let model = data[userID] {
             model.online = true
         } else {
