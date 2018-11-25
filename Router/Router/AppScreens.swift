@@ -12,4 +12,5 @@ public enum AppScreens {
     case Theme
     case Profile
     case Conversation
+    case ImagePicker
 }

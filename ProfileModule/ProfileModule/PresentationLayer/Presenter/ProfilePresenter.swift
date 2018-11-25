@@ -14,7 +14,7 @@ class ProfilePresenter: IProfilePresenter {
     private let profileInteractor: IProfileInteractor
     private let router: IRouter
     private weak var view: IProfileView?
-    
+
     init(profileInteractor: IProfileInteractor,
          router: IRouter,
          view: IProfileView) {
@@ -22,22 +22,22 @@ class ProfilePresenter: IProfilePresenter {
         self.router = router
         self.view = view
     }
-    
+
     func saveProfile(model: ProfileModel) {
         view?.showLoading(show: true)
         DispatchQueue.global(qos: .default).async {
             let success = self.profileInteractor.saveProfile(model: model)
-            
+
             DispatchQueue.main.async {
                 self.view?.showSaveAction(success: success)
                 self.view?.showLoading(show: false)
             }
         }
     }
-    
+
     func loadProfile() {
         view?.showLoading(show: true)
-        
+
         DispatchQueue.global(qos: .default).async {
             let profile = self.profileInteractor.loadProfile()
             DispatchQueue.main.async {
@@ -46,6 +46,16 @@ class ProfilePresenter: IProfilePresenter {
                 }
                 self.view?.showLoading(show: false)
             }
+        }
+    }
+
+    func openImagePicker() {
+        let succes = router.handle(AppScreens.ImagePicker) {
+            viewController in
+            view?.present(viewControllerToPresent: viewController)
+        }
+        if succes {
+            print("роутер отработал")
         }
     }
 }

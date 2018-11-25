@@ -8,6 +8,9 @@
       location = "group:ThemeModule/ThemeModule.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:ImagePickerModule/ImagePickerModule.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:ConversationModule/ConversationModule.xcodeproj">
    </FileRef>
    <FileRef

@@ -187,7 +187,7 @@ public class CoreDataManager: IStorage {
     public func saveProfile(model: ProfileModel) -> Bool {
 
         if let saveContext = self.coreDataStack.saveContext {
-            saveContext.perform {
+            saveContext.performAndWait {
                 if let userCoreData = CoreDataManager.findOrInsertDefaultUser(in: saveContext),
                    let currentUser = userCoreData.currentUser {
 

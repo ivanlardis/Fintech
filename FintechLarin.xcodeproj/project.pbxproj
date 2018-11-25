@@ -20,10 +20,29 @@
 		8A521E2921A20C0200A45001 /* ProfileModule.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8A4B310021A04B92008B97A9 /* ProfileModule.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8A521E2A21A20C0500A45001 /* ThemeModule.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A4B30D121A03C5C008B97A9 /* ThemeModule.framework */; };
 		8A521E2B21A20C0500A45001 /* ThemeModule.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8A4B30D121A03C5C008B97A9 /* ThemeModule.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8A89FE1821AA8ABC00278F9B /* ImagePickerModule.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A89FE1721AA8ABC00278F9B /* ImagePickerModule.framework */; };
+		8A89FE1921AA8ABC00278F9B /* ImagePickerModule.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8A89FE1721AA8ABC00278F9B /* ImagePickerModule.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8A9B3D872157752A00A12815 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9B3D862157752A00A12815 /* AppDelegate.swift */; };
 		8A9B3D8E2157752A00A12815 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A9B3D8D2157752A00A12815 /* Assets.xcassets */; };
 		8A9B3D912157752A00A12815 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A9B3D8F2157752A00A12815 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8A89FDDE21AA7BB000278F9B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8A89FDDA21AA7BB000278F9B /* ThemeModule.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8A4B309321A03035008B97A9;
+			remoteInfo = ThemeModule;
+		};
+		8A89FDE421AA7BB400278F9B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8A89FDE021AA7BB400278F9B /* ThemeModule.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8A4B309321A03035008B97A9;
+			remoteInfo = ThemeModule;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		8A521E2121A20BBB00A45001 /* Embed Frameworks */ = {
@@ -36,6 +55,7 @@
 				8A521E2721A20BF100A45001 /* ServiceLayer.framework in Embed Frameworks */,
 				8A521E2021A20BBB00A45001 /* Router.framework in Embed Frameworks */,
 				8A521E2921A20C0200A45001 /* ProfileModule.framework in Embed Frameworks */,
+				8A89FE1921AA8ABC00278F9B /* ImagePickerModule.framework in Embed Frameworks */,
 				8A521E2521A20BEE00A45001 /* CoreLayer.framework in Embed Frameworks */,
 				8A521E2321A20BD300A45001 /* ConversationModule.framework in Embed Frameworks */,
 			);
@@ -61,6 +81,9 @@
 		8A521E1621A20B1900A45001 /* ProfileModule.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ProfileModule.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A521E1821A20B1D00A45001 /* ConversationModule.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ConversationModule.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A521E1A21A20B8900A45001 /* CoreLayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoreLayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8A89FDDA21AA7BB000278F9B /* ThemeModule.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ThemeModule.xcodeproj; path = ThemeModule/ThemeModule.xcodeproj; sourceTree = "<group>"; };
+		8A89FDE021AA7BB400278F9B /* ThemeModule.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ThemeModule.xcodeproj; path = ThemeModule/ThemeModule.xcodeproj; sourceTree = "<group>"; };
+		8A89FE1721AA8ABC00278F9B /* ImagePickerModule.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ImagePickerModule.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A9B3D832157752A00A12815 /* FintechLarin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FintechLarin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A9B3D862157752A00A12815 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8A9B3D8D2157752A00A12815 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -80,6 +103,7 @@
 				8A521E2621A20BF100A45001 /* ServiceLayer.framework in Frameworks */,
 				8A521E1F21A20BBB00A45001 /* Router.framework in Frameworks */,
 				8A521E2821A20C0200A45001 /* ProfileModule.framework in Frameworks */,
+				8A89FE1821AA8ABC00278F9B /* ImagePickerModule.framework in Frameworks */,
 				8A521E2421A20BEE00A45001 /* CoreLayer.framework in Frameworks */,
 				8A521E2221A20BD300A45001 /* ConversationModule.framework in Frameworks */,
 			);
@@ -110,9 +134,28 @@
 			name = "Resources-iPad";
 			sourceTree = "<group>";
 		};
+		8A89FDDB21AA7BB000278F9B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8A89FDDF21AA7BB000278F9B /* ThemeModule.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8A89FDE121AA7BB400278F9B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8A89FDE521AA7BB400278F9B /* ThemeModule.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		8A9B3D7A2157752A00A12815 = {
 			isa = PBXGroup;
 			children = (
+				8A89FE1721AA8ABC00278F9B /* ImagePickerModule.framework */,
+				8A89FDE021AA7BB400278F9B /* ThemeModule.xcodeproj */,
+				8A89FDDA21AA7BB000278F9B /* ThemeModule.xcodeproj */,
 				8A4B319421A14376008B97A9 /* ConversationModule.framework */,
 				8A4B310021A04B92008B97A9 /* ProfileModule.framework */,
 				8A4B30D121A03C5C008B97A9 /* ThemeModule.framework */,
@@ -209,12 +252,39 @@
 			mainGroup = 8A9B3D7A2157752A00A12815;
 			productRefGroup = 8A9B3D842157752A00A12815 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 8A89FDDB21AA7BB000278F9B /* Products */;
+					ProjectRef = 8A89FDDA21AA7BB000278F9B /* ThemeModule.xcodeproj */;
+				},
+				{
+					ProductGroup = 8A89FDE121AA7BB400278F9B /* Products */;
+					ProjectRef = 8A89FDE021AA7BB400278F9B /* ThemeModule.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				8A9B3D822157752A00A12815 /* FintechLarin */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		8A89FDDF21AA7BB000278F9B /* ThemeModule.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ThemeModule.framework;
+			remoteRef = 8A89FDDE21AA7BB000278F9B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		8A89FDE521AA7BB400278F9B /* ThemeModule.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ThemeModule.framework;
+			remoteRef = 8A89FDE421AA7BB400278F9B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		8A9B3D812157752A00A12815 /* Resources */ = {

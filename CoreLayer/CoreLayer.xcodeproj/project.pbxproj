@@ -23,6 +23,24 @@
 		8A4B31B421A184B9008B97A9 /* CoreLayerAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4B31B321A184B9008B97A9 /* CoreLayerAssembly.swift */; };
 		8A4B31BC21A18BF7008B97A9 /* UserDefaults+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4B31BB21A18BF7008B97A9 /* UserDefaults+Color.swift */; };
 		8A521E2D21A2176600A45001 /* ICoreLayerAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A521E2C21A2176600A45001 /* ICoreLayerAssembly.swift */; };
+		8A89FE0521AA7EA900278F9B /* INettwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A89FE0421AA7EA900278F9B /* INettwork.swift */; };
+		8A89FE0921AA7F8600278F9B /* IRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A89FE0821AA7F8600278F9B /* IRequest.swift */; };
+		8A89FE0B21AA7F9400278F9B /* IParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A89FE0A21AA7F9400278F9B /* IParser.swift */; };
+		8A89FE0D21AA7FAC00278F9B /* RequestConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A89FE0C21AA7FAC00278F9B /* RequestConfig.swift */; };
+		8A89FE1021AA7FDD00278F9B /* IRequestSender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A89FE0F21AA7FDD00278F9B /* IRequestSender.swift */; };
+		8A89FE1221AA800200278F9B /* RequestSender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A89FE1121AA800200278F9B /* RequestSender.swift */; };
+		8A89FE1421AA85BC00278F9B /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A89FE1321AA85BC00278F9B /* Result.swift */; };
+		8A89FE2221AA8D7400278F9B /* ImageCoreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A89FE2121AA8D7400278F9B /* ImageCoreModel.swift */; };
+		8A89FE2421AA8F8E00278F9B /* ImageListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A89FE2321AA8F8E00278F9B /* ImageListModel.swift */; };
+		8A89FE2621AA927500278F9B /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A89FE2521AA927500278F9B /* NetworkManager.swift */; };
+		8A89FE2A21AA97AE00278F9B /* URLSession+Async.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A89FE2921AA97AE00278F9B /* URLSession+Async.swift */; };
+		8A89FE3121AA9A6800278F9B /* CodableParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A89FE3021AA9A6800278F9B /* CodableParser.swift */; };
+		8A89FE3321AA9E4D00278F9B /* PixabayRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A89FE3221AA9E4D00278F9B /* PixabayRequest.swift */; };
+		8A89FE3521AAA03C00278F9B /* RequestsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A89FE3421AAA03C00278F9B /* RequestsFactory.swift */; };
+		8A89FE3721AAC11000278F9B /* ImageParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A89FE3621AAC11000278F9B /* ImageParser.swift */; };
+		8A89FE3921AAC2E300278F9B /* PixabayImageRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A89FE3821AAC2E300278F9B /* PixabayImageRequest.swift */; };
+		8A89FE4421AAEBD600278F9B /* IFileStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A89FE4321AAEBD600278F9B /* IFileStorage.swift */; };
+		8A89FE4621AAEC6A00278F9B /* FilesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A89FE4521AAEC6A00278F9B /* FilesManager.swift */; };
 		8AC688D2219FFA6D008E3BE6 /* CoreLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 8AC688D0219FFA6D008E3BE6 /* CoreLayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8AC688DE219FFB06008E3BE6 /* CommunicatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC688DD219FFB06008E3BE6 /* CommunicatorDelegate.swift */; };
 		8AC688E7219FFC47008E3BE6 /* MultipeerCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC688E6219FFC47008E3BE6 /* MultipeerCommunicator.swift */; };
@@ -46,6 +64,24 @@
 		8A4B31B321A184B9008B97A9 /* CoreLayerAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreLayerAssembly.swift; sourceTree = "<group>"; };
 		8A4B31BB21A18BF7008B97A9 /* UserDefaults+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Color.swift"; sourceTree = "<group>"; };
 		8A521E2C21A2176600A45001 /* ICoreLayerAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICoreLayerAssembly.swift; sourceTree = "<group>"; };
+		8A89FE0421AA7EA900278F9B /* INettwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = INettwork.swift; sourceTree = "<group>"; };
+		8A89FE0821AA7F8600278F9B /* IRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IRequest.swift; sourceTree = "<group>"; };
+		8A89FE0A21AA7F9400278F9B /* IParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IParser.swift; sourceTree = "<group>"; };
+		8A89FE0C21AA7FAC00278F9B /* RequestConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestConfig.swift; sourceTree = "<group>"; };
+		8A89FE0F21AA7FDD00278F9B /* IRequestSender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IRequestSender.swift; sourceTree = "<group>"; };
+		8A89FE1121AA800200278F9B /* RequestSender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestSender.swift; sourceTree = "<group>"; };
+		8A89FE1321AA85BC00278F9B /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		8A89FE2121AA8D7400278F9B /* ImageCoreModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCoreModel.swift; sourceTree = "<group>"; };
+		8A89FE2321AA8F8E00278F9B /* ImageListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageListModel.swift; sourceTree = "<group>"; };
+		8A89FE2521AA927500278F9B /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		8A89FE2921AA97AE00278F9B /* URLSession+Async.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+Async.swift"; sourceTree = "<group>"; };
+		8A89FE3021AA9A6800278F9B /* CodableParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableParser.swift; sourceTree = "<group>"; };
+		8A89FE3221AA9E4D00278F9B /* PixabayRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixabayRequest.swift; sourceTree = "<group>"; };
+		8A89FE3421AAA03C00278F9B /* RequestsFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestsFactory.swift; sourceTree = "<group>"; };
+		8A89FE3621AAC11000278F9B /* ImageParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageParser.swift; sourceTree = "<group>"; };
+		8A89FE3821AAC2E300278F9B /* PixabayImageRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixabayImageRequest.swift; sourceTree = "<group>"; };
+		8A89FE4321AAEBD600278F9B /* IFileStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IFileStorage.swift; sourceTree = "<group>"; };
+		8A89FE4521AAEC6A00278F9B /* FilesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilesManager.swift; sourceTree = "<group>"; };
 		8AC688CD219FFA6D008E3BE6 /* CoreLayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CoreLayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AC688D0219FFA6D008E3BE6 /* CoreLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoreLayer.h; sourceTree = "<group>"; };
 		8AC688D1219FFA6D008E3BE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -68,6 +104,7 @@
 		5EC1A445949573DDA938087B /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				8A113C6221A1BC1D004328BC /* IStorage.swift */,
 				5EC1A32E7805A854ABB1541F /* AppUser.swift */,
 				5EC1A95B4F4063CFAFBCC7AE /* CoreDataStack.swift */,
 				5EC1AB63C594B23D6FEB831E /* CoreDataManager.swift */,
@@ -81,8 +118,8 @@
 		8A113C6121A1B784004328BC /* Storage */ = {
 			isa = PBXGroup;
 			children = (
+				8A89FE4221AAEBB100278F9B /* FileStorage */,
 				5EC1A445949573DDA938087B /* CoreData */,
-				8A113C6221A1BC1D004328BC /* IStorage.swift */,
 			);
 			path = Storage;
 			sourceTree = "<group>";
@@ -95,6 +132,94 @@
 				8A4B31B121A1842E008B97A9 /* UserDefaultWrapper.swift */,
 			);
 			path = KeyValueStorage;
+			sourceTree = "<group>";
+		};
+		8A89FE0321AA7E7E00278F9B /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				8A89FE0721AA7F5700278F9B /* NetworkLibrary */,
+				8A89FE0621AA7EC200278F9B /* NetworkManager */,
+				8A89FE0421AA7EA900278F9B /* INettwork.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		8A89FE0621AA7EC200278F9B /* NetworkManager */ = {
+			isa = PBXGroup;
+			children = (
+				8A89FE2121AA8D7400278F9B /* ImageCoreModel.swift */,
+				8A89FE2321AA8F8E00278F9B /* ImageListModel.swift */,
+				8A89FE2521AA927500278F9B /* NetworkManager.swift */,
+			);
+			path = NetworkManager;
+			sourceTree = "<group>";
+		};
+		8A89FE0721AA7F5700278F9B /* NetworkLibrary */ = {
+			isa = PBXGroup;
+			children = (
+				8A89FE2F21AA99E200278F9B /* Extension */,
+				8A89FE2E21AA99D600278F9B /* Config */,
+				8A89FE2D21AA99BE00278F9B /* Sender */,
+				8A89FE2C21AA99A900278F9B /* Parser */,
+				8A89FE2B21AA999B00278F9B /* Request */,
+				8A89FE1321AA85BC00278F9B /* Result.swift */,
+			);
+			path = NetworkLibrary;
+			sourceTree = "<group>";
+		};
+		8A89FE2B21AA999B00278F9B /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				8A89FE0821AA7F8600278F9B /* IRequest.swift */,
+				8A89FE3221AA9E4D00278F9B /* PixabayRequest.swift */,
+				8A89FE3821AAC2E300278F9B /* PixabayImageRequest.swift */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		8A89FE2C21AA99A900278F9B /* Parser */ = {
+			isa = PBXGroup;
+			children = (
+				8A89FE0A21AA7F9400278F9B /* IParser.swift */,
+				8A89FE3021AA9A6800278F9B /* CodableParser.swift */,
+				8A89FE3621AAC11000278F9B /* ImageParser.swift */,
+			);
+			path = Parser;
+			sourceTree = "<group>";
+		};
+		8A89FE2D21AA99BE00278F9B /* Sender */ = {
+			isa = PBXGroup;
+			children = (
+				8A89FE1121AA800200278F9B /* RequestSender.swift */,
+				8A89FE0F21AA7FDD00278F9B /* IRequestSender.swift */,
+			);
+			path = Sender;
+			sourceTree = "<group>";
+		};
+		8A89FE2E21AA99D600278F9B /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				8A89FE0C21AA7FAC00278F9B /* RequestConfig.swift */,
+				8A89FE3421AAA03C00278F9B /* RequestsFactory.swift */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		8A89FE2F21AA99E200278F9B /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				8A89FE2921AA97AE00278F9B /* URLSession+Async.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		8A89FE4221AAEBB100278F9B /* FileStorage */ = {
+			isa = PBXGroup;
+			children = (
+				8A89FE4321AAEBD600278F9B /* IFileStorage.swift */,
+				8A89FE4521AAEC6A00278F9B /* FilesManager.swift */,
+			);
+			path = FileStorage;
 			sourceTree = "<group>";
 		};
 		8AC688C3219FFA6D008E3BE6 = {
@@ -116,6 +241,7 @@
 		8AC688CF219FFA6D008E3BE6 /* CoreLayer */ = {
 			isa = PBXGroup;
 			children = (
+				8A89FE0321AA7E7E00278F9B /* Network */,
 				8A521E2C21A2176600A45001 /* ICoreLayerAssembly.swift */,
 				8A4B31B321A184B9008B97A9 /* CoreLayerAssembly.swift */,
 				8A113C6121A1B784004328BC /* Storage */,
@@ -230,23 +356,41 @@
 			files = (
 				8A113CCC21A1DEE0004328BC /* ICommunicationManager.swift in Sources */,
 				8A4B31B421A184B9008B97A9 /* CoreLayerAssembly.swift in Sources */,
+				8A89FE0D21AA7FAC00278F9B /* RequestConfig.swift in Sources */,
 				8A113C6321A1BC1D004328BC /* IStorage.swift in Sources */,
 				8A113C8721A1D5C9004328BC /* ICommunicationDelegate.swift in Sources */,
+				8A89FE0B21AA7F9400278F9B /* IParser.swift in Sources */,
+				8A89FE3321AA9E4D00278F9B /* PixabayRequest.swift in Sources */,
 				8AC688DE219FFB06008E3BE6 /* CommunicatorDelegate.swift in Sources */,
+				8A89FE3921AAC2E300278F9B /* PixabayImageRequest.swift in Sources */,
+				8A89FE2A21AA97AE00278F9B /* URLSession+Async.swift in Sources */,
 				8A4B31BC21A18BF7008B97A9 /* UserDefaults+Color.swift in Sources */,
 				8AC688E9219FFCCC008E3BE6 /* CommunicationManager.swift in Sources */,
+				8A89FE3121AA9A6800278F9B /* CodableParser.swift in Sources */,
 				8AC688E7219FFC47008E3BE6 /* MultipeerCommunicator.swift in Sources */,
 				5EC1A02D9E4441D1E2288117 /* ConversationModel.swift in Sources */,
+				8A89FE2421AA8F8E00278F9B /* ImageListModel.swift in Sources */,
 				8A113CCA21A1DEA3004328BC /* ICommunicator.swift in Sources */,
 				8A4B31B221A1842E008B97A9 /* UserDefaultWrapper.swift in Sources */,
+				8A89FE2621AA927500278F9B /* NetworkManager.swift in Sources */,
 				5EC1A87D62DEDF990D972687 /* MessageModel.swift in Sources */,
+				8A89FE1421AA85BC00278F9B /* Result.swift in Sources */,
+				8A89FE3721AAC11000278F9B /* ImageParser.swift in Sources */,
 				5EC1A8F511EBD7006F80A880 /* AppUser.swift in Sources */,
+				8A89FE4421AAEBD600278F9B /* IFileStorage.swift in Sources */,
 				5EC1A685C7C031AA1525B5E6 /* CoreDataStack.swift in Sources */,
 				5EC1A81B0541871B6040FEE5 /* CoreDataManager.swift in Sources */,
+				8A89FE1221AA800200278F9B /* RequestSender.swift in Sources */,
+				8A89FE0921AA7F8600278F9B /* IRequest.swift in Sources */,
+				8A89FE1021AA7FDD00278F9B /* IRequestSender.swift in Sources */,
 				8A521E2D21A2176600A45001 /* ICoreLayerAssembly.swift in Sources */,
 				5EC1A3C8E405C4E59F66F2C4 /* CoreDataModel.xcdatamodeld in Sources */,
+				8A89FE0521AA7EA900278F9B /* INettwork.swift in Sources */,
+				8A89FE4621AAEC6A00278F9B /* FilesManager.swift in Sources */,
 				5EC1AB07DF28119663E47DD0 /* ProfileModel.swift in Sources */,
+				8A89FE2221AA8D7400278F9B /* ImageCoreModel.swift in Sources */,
 				8A4B31B021A1840F008B97A9 /* IKeyValueStorage.swift in Sources */,
+				8A89FE3521AAA03C00278F9B /* RequestsFactory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

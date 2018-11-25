@@ -33,6 +33,12 @@ public class ServiceLayerAssembly: IServiceLayerAssembly {
         return conversationService
     }()
 
+    private lazy var imagePickerService: IImagePickerService = {
+        return ImagePickerService.init(network: coreLayerAssembly.getNettwork(),
+                storage: coreLayerAssembly.getStorage(),
+                fileStorage: coreLayerAssembly.getFileStorage())
+    }()
+
     public func getThemesService() -> IThemesService {
         return themesService
     }
@@ -43,5 +49,9 @@ public class ServiceLayerAssembly: IServiceLayerAssembly {
 
     public func getConversationService() -> IConversationService {
         return conversationService
+    }
+
+    public func getImagePickerService() -> IImagePickerService {
+        return imagePickerService
     }
 }

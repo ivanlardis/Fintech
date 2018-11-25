@@ -20,6 +20,7 @@
 		8A4B30FD21A04B72008B97A9 /* Router.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A4B30FC21A04B72008B97A9 /* Router.framework */; };
 		8A4B30FF21A04B7E008B97A9 /* ServiceLayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A4B30FE21A04B7E008B97A9 /* ServiceLayer.framework */; };
 		8A4B310421A04BEA008B97A9 /* ProfileRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4B310321A04BEA008B97A9 /* ProfileRouter.swift */; };
+		8A89FE4C21AAFB5600278F9B /* UIImage+Crop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A89FE4A21AAFB5000278F9B /* UIImage+Crop.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		8A4B30FC21A04B72008B97A9 /* Router.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Router.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A4B30FE21A04B7E008B97A9 /* ServiceLayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ServiceLayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A4B310321A04BEA008B97A9 /* ProfileRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRouter.swift; sourceTree = "<group>"; };
+		8A89FE4A21AAFB5000278F9B /* UIImage+Crop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Crop.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 		8A4B30F221A04B55008B97A9 /* ProfileModule */ = {
 			isa = PBXGroup;
 			children = (
+				8A89FE4B21AAFB5000278F9B /* Extension */,
 				8A4B310321A04BEA008B97A9 /* ProfileRouter.swift */,
 				8A113C7421A1C066004328BC /* PresentationLayer */,
 				8A4B30F321A04B55008B97A9 /* ProfileModule.h */,
@@ -128,6 +131,14 @@
 				8A4B30FC21A04B72008B97A9 /* Router.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8A89FE4B21AAFB5000278F9B /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				8A89FE4A21AAFB5000278F9B /* UIImage+Crop.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -219,6 +230,7 @@
 				8A113C7621A1C13D004328BC /* ProfileInteractor.swift in Sources */,
 				5EC1A51958CB0A47D87C4DCD /* ProfileViewController.swift in Sources */,
 				8A113C7B21A1C173004328BC /* IProfilePresenter.swift in Sources */,
+				8A89FE4C21AAFB5600278F9B /* UIImage+Crop.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

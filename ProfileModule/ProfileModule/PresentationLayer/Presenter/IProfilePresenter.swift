@@ -12,4 +12,5 @@ import CoreLayer
 public protocol IProfilePresenter: class {
     func saveProfile(model: ProfileModel)
     func loadProfile()
+    func openImagePicker()
 }

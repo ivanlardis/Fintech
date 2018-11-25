@@ -10,8 +10,8 @@ import UIKit
 
 public protocol ICoreLayerAssembly: class {
     func getKeyValueStorage() -> IKeyValueStorage
-
     func getStorage() -> IStorage
-
+    func getNettwork() -> INettwork
     func getCommunication() -> ICommunicationManager
+    func getFileStorage() -> IFileStorage
 }

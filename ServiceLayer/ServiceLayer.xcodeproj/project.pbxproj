@@ -16,6 +16,8 @@
 		8A4B31B721A18589008B97A9 /* ServiceLayerAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4B31B621A18589008B97A9 /* ServiceLayerAssembly.swift */; };
 		8A521E2F21A21A4600A45001 /* IServiceLayerAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A521E2E21A21A4600A45001 /* IServiceLayerAssembly.swift */; };
 		8A521E3121A21BB800A45001 /* ServiceLayerAssemblyFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A521E3021A21BB800A45001 /* ServiceLayerAssemblyFactory.swift */; };
+		8A89FDFF21AA7E2C00278F9B /* ImagePickerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A89FDFE21AA7E2C00278F9B /* ImagePickerService.swift */; };
+		8A89FE0121AA7E3700278F9B /* IImagePickerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A89FE0021AA7E3700278F9B /* IImagePickerService.swift */; };
 		8AC688FB21A029C2008E3BE6 /* ServiceLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 8AC688F921A029C2008E3BE6 /* ServiceLayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8AC6890321A02D4F008E3BE6 /* CoreLayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AC6890221A02D4F008E3BE6 /* CoreLayer.framework */; };
 /* End PBXBuildFile section */
@@ -30,6 +32,8 @@
 		8A4B31B621A18589008B97A9 /* ServiceLayerAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLayerAssembly.swift; sourceTree = "<group>"; };
 		8A521E2E21A21A4600A45001 /* IServiceLayerAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IServiceLayerAssembly.swift; sourceTree = "<group>"; };
 		8A521E3021A21BB800A45001 /* ServiceLayerAssemblyFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLayerAssemblyFactory.swift; sourceTree = "<group>"; };
+		8A89FDFE21AA7E2C00278F9B /* ImagePickerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerService.swift; sourceTree = "<group>"; };
+		8A89FE0021AA7E3700278F9B /* IImagePickerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IImagePickerService.swift; sourceTree = "<group>"; };
 		8AC688F621A029C2008E3BE6 /* ServiceLayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ServiceLayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AC688F921A029C2008E3BE6 /* ServiceLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ServiceLayer.h; sourceTree = "<group>"; };
 		8AC688FA21A029C2008E3BE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -75,6 +79,15 @@
 			path = Themes;
 			sourceTree = "<group>";
 		};
+		8A89FDFD21AA7E0C00278F9B /* ImagePicker */ = {
+			isa = PBXGroup;
+			children = (
+				8A89FDFE21AA7E2C00278F9B /* ImagePickerService.swift */,
+				8A89FE0021AA7E3700278F9B /* IImagePickerService.swift */,
+			);
+			path = ImagePicker;
+			sourceTree = "<group>";
+		};
 		8AC688EC21A029C2008E3BE6 = {
 			isa = PBXGroup;
 			children = (
@@ -98,6 +111,7 @@
 				8A521E3021A21BB800A45001 /* ServiceLayerAssemblyFactory.swift */,
 				8A4B31B621A18589008B97A9 /* ServiceLayerAssembly.swift */,
 				8A521E2E21A21A4600A45001 /* IServiceLayerAssembly.swift */,
+				8A89FDFD21AA7E0C00278F9B /* ImagePicker */,
 				8A113C8321A1CCD4004328BC /* Conversation */,
 				8A113C5B21A1B72E004328BC /* Profile */,
 				8A4B31A721A18356008B97A9 /* Themes */,
@@ -198,6 +212,8 @@
 				8A4B31A921A18389008B97A9 /* ThemesService.swift in Sources */,
 				8A4B31B721A18589008B97A9 /* ServiceLayerAssembly.swift in Sources */,
 				8A113C5D21A1B748004328BC /* ProfileService.swift in Sources */,
+				8A89FE0121AA7E3700278F9B /* IImagePickerService.swift in Sources */,
+				8A89FDFF21AA7E2C00278F9B /* ImagePickerService.swift in Sources */,
 				8A521E2F21A21A4600A45001 /* IServiceLayerAssembly.swift in Sources */,
 				8A113CC321A1DA33004328BC /* IConversationService.swift in Sources */,
 				8A521E3121A21BB800A45001 /* ServiceLayerAssemblyFactory.swift in Sources */,

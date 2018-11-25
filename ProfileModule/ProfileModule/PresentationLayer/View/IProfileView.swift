@@ -8,10 +8,11 @@
 
 import UIKit
 import CoreLayer
-public protocol  IProfileView: class {
-    var profilePresenter  : IProfilePresenter? { get set }
-    
+
+public protocol IProfileView: class {
+    var profilePresenter: IProfilePresenter? { get set }
+    func present(viewControllerToPresent: UIViewController)
     func showLoading(show: Bool)
     func showData(model: ProfileModel)
-    func showSaveAction(success:Bool)
+    func showSaveAction(success: Bool)
 }

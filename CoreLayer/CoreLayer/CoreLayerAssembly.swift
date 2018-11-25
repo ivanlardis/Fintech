@@ -37,4 +37,16 @@ public class CoreLayerAssembly: ICoreLayerAssembly {
     public func getCommunication() -> ICommunicationManager {
         return communicationManager
     }
+
+    public func getNettwork() -> INettwork {
+        let requestSender: IRequestSender = RequestSender.init()
+        let requestsFactory: RequestsFactory = RequestsFactory.init()
+
+        return NetworkManager.init(requestSender: requestSender,
+                requestsFactory: requestsFactory)
+    }
+
+    public func getFileStorage() -> IFileStorage {
+        return FilesManager.init()
+    }
 }
