@@ -12,17 +12,17 @@ import ThemeModule
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    
+
     var window: UIWindow?
-    
+
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
-        
+
         self.window = UIWindow(frame: UIScreen.main.bounds)
         RouterAssembly.initRouter(router: AppRouter())
         ThemeСonfigurator.configurate()
         return startFirstScreen()
     }
-    
+
     func startFirstScreen() -> Bool {
         return RouterAssembly.getRouter().handle(AppScreens.Conversation) {
             viewController in

@@ -12,4 +12,5 @@ protocol IImagePickerPresenter {
     func getImageList()
     func getImage(cell: ImagePickerCell, url: String)
     func saveImage(url: String)
+    func cancelLoadImage(url: String)
 }

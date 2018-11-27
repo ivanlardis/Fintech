@@ -25,6 +25,7 @@
 		8A9B3D872157752A00A12815 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9B3D862157752A00A12815 /* AppDelegate.swift */; };
 		8A9B3D8E2157752A00A12815 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A9B3D8D2157752A00A12815 /* Assets.xcassets */; };
 		8A9B3D912157752A00A12815 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A9B3D8F2157752A00A12815 /* LaunchScreen.storyboard */; };
+		F26B2C75BEBB47154F143680 /* Pods_FintechLarin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A4B308421A02DDC008B97A9 /* Pods_FintechLarin.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,6 +107,7 @@
 				8A89FE1821AA8ABC00278F9B /* ImagePickerModule.framework in Frameworks */,
 				8A521E2421A20BEE00A45001 /* CoreLayer.framework in Frameworks */,
 				8A521E2221A20BD300A45001 /* ConversationModule.framework in Frameworks */,
+				F26B2C75BEBB47154F143680 /* Pods_FintechLarin.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -315,8 +317,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = " 
-";
+			shellScript = " \n";
 			showEnvVarsInLog = 0;
 		};
 		A22E49DDEC9401B7C0F8F535 /* [CP] Check Pods Manifest.lock */ = {

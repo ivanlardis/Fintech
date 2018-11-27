@@ -73,8 +73,10 @@ class ImagePickerViewController: UIViewController,
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        return collectionView.dequeueReusableCell(withReuseIdentifier: "ImagePickerCellIdentifier", for: indexPath)
+    }
 
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImagePickerCellIdentifier", for: indexPath)
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if let imagePickerCell = cell as? ImagePickerCell {
             imagePickerCell.image = nil
 
@@ -82,6 +84,12 @@ class ImagePickerViewController: UIViewController,
                 presenter?.getImage(cell: imagePickerCell, url: url)
             }
         }
-        return cell
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if let url = data?.hits[indexPath.row].webformatURL {
+            presenter?.cancelLoadImage(url: url)
+        }
+
     }
 }

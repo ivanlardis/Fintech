@@ -15,6 +15,7 @@ class ImagePickerPresenter: IImagePickerPresenter {
     private let router: IRouter
     private weak var view: IImagePickerView?
     var operationQueue: OperationQueue
+    var operations = [String: BlockOperation]()
 
     init(interactor: IImagePickerInteractor,
          router: IRouter,
@@ -22,14 +23,14 @@ class ImagePickerPresenter: IImagePickerPresenter {
         self.interactor = interactor
         self.router = router
         self.view = view
-        operationQueue = ImagePickerPresenter.createOperationQueue()
 
+        operationQueue = OperationQueue.init()
+        operationQueue.maxConcurrentOperationCount = 10
     }
 
     func saveImage(url: String) {
         view?.showLoading(show: true)
         DispatchQueue.global(qos: .background).async {
-
 
             self.interactor.saveImage(url: url)
             DispatchQueue.main.async {
@@ -58,9 +59,7 @@ class ImagePickerPresenter: IImagePickerPresenter {
     }
 
     func getImage(cell: ImagePickerCell, url: String) {
-
-        cell.url = url
-        operationQueue.addOperation {
+        let operation = BlockOperation {
             let result = self.interactor.getImage(url: url)
             DispatchQueue.main.async {
                 switch result {
@@ -68,7 +67,6 @@ class ImagePickerPresenter: IImagePickerPresenter {
                     print(text)
                     break
                 case .success(let image):
-
                     if (cell.url == url) {
                         cell.image = image.cropToSquare()
                     }
@@ -76,12 +74,13 @@ class ImagePickerPresenter: IImagePickerPresenter {
                 }
             }
         }
+
+        cell.url = url
+        operations[url] = operation
+        operationQueue.addOperation(operation)
     }
 
-    static func createOperationQueue() -> OperationQueue {
-        let operationQueue = OperationQueue.init()
-
-        operationQueue.maxConcurrentOperationCount = 10
-        return operationQueue
+    func cancelLoadImage(url: String) {
+        operations[url]?.cancel()
     }
 }
