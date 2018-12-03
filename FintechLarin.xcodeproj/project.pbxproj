@@ -20,6 +20,7 @@
 		8A521E2921A20C0200A45001 /* ProfileModule.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8A4B310021A04B92008B97A9 /* ProfileModule.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8A521E2A21A20C0500A45001 /* ThemeModule.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A4B30D121A03C5C008B97A9 /* ThemeModule.framework */; };
 		8A521E2B21A20C0500A45001 /* ThemeModule.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8A4B30D121A03C5C008B97A9 /* ThemeModule.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8A670FF021B5D52F00327C95 /* AnimationWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A670FEF21B5D52F00327C95 /* AnimationWindow.swift */; };
 		8A89FE1821AA8ABC00278F9B /* ImagePickerModule.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A89FE1721AA8ABC00278F9B /* ImagePickerModule.framework */; };
 		8A89FE1921AA8ABC00278F9B /* ImagePickerModule.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8A89FE1721AA8ABC00278F9B /* ImagePickerModule.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8A9B3D872157752A00A12815 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9B3D862157752A00A12815 /* AppDelegate.swift */; };
@@ -82,6 +83,7 @@
 		8A521E1621A20B1900A45001 /* ProfileModule.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ProfileModule.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A521E1821A20B1D00A45001 /* ConversationModule.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ConversationModule.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A521E1A21A20B8900A45001 /* CoreLayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoreLayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8A670FEF21B5D52F00327C95 /* AnimationWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationWindow.swift; sourceTree = "<group>"; };
 		8A89FDDA21AA7BB000278F9B /* ThemeModule.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ThemeModule.xcodeproj; path = ThemeModule/ThemeModule.xcodeproj; sourceTree = "<group>"; };
 		8A89FDE021AA7BB400278F9B /* ThemeModule.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ThemeModule.xcodeproj; path = ThemeModule/ThemeModule.xcodeproj; sourceTree = "<group>"; };
 		8A89FE1721AA8ABC00278F9B /* ImagePickerModule.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ImagePickerModule.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -190,6 +192,7 @@
 				8A9B3D8D2157752A00A12815 /* Assets.xcassets */,
 				8A9B3D8F2157752A00A12815 /* LaunchScreen.storyboard */,
 				8A9B3D922157752A00A12815 /* Info.plist */,
+				8A670FEF21B5D52F00327C95 /* AnimationWindow.swift */,
 			);
 			path = FintechLarin;
 			sourceTree = "<group>";
@@ -317,7 +320,8 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = " \n";
+			shellScript = " 
+";
 			showEnvVarsInLog = 0;
 		};
 		A22E49DDEC9401B7C0F8F535 /* [CP] Check Pods Manifest.lock */ = {
@@ -351,6 +355,7 @@
 			files = (
 				8A9B3D872157752A00A12815 /* AppDelegate.swift in Sources */,
 				8A4B30C421A03893008B97A9 /* AppRouter.swift in Sources */,
+				8A670FF021B5D52F00327C95 /* AnimationWindow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -141,7 +141,7 @@ class ConversationListViewController: UIViewController,
             at indexPath: IndexPath?,
             for type: NSFetchedResultsChangeType,
             newIndexPath: IndexPath?) {
-        print("\(#function)")
+        print(" ConversationListViewController \(#function)")
         switch type {
         case .insert:
             tableView.insertRows(at: [newIndexPath!], with: .automatic)
@@ -156,12 +156,12 @@ class ConversationListViewController: UIViewController,
     }
 
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        print("\(#function)")
+        print(" ConversationListViewController \(#function)")
         self.tableView.beginUpdates()
     }
 
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        print("\(#function)")
+        print(" ConversationListViewController \(#function)")
         self.tableView.endUpdates()
     }
 }

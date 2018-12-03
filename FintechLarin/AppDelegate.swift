@@ -15,11 +15,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
+    func application(_ application: UIApplication,
+                     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
 
-        self.window = UIWindow(frame: UIScreen.main.bounds)
+        self.window = AnimationWindow(frame: UIScreen.main.bounds)
         RouterAssembly.initRouter(router: AppRouter())
         ThemeСonfigurator.configurate()
+
         return startFirstScreen()
     }
 

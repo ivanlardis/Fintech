@@ -20,7 +20,8 @@ public class CoreDataManager: IStorage {
     private func updateMessage(context: NSManagedObjectContext,
                                messageModel: MessageModel,
                                conversion: Conversation?,
-                               isLast: Bool) {
+                               isLast: Bool,
+                               online: Bool) {
 
         let message: Message? = self.findOrCreate(in: context, idModel: messageModel.messageId)
         message?.conversationId = conversion?.id
@@ -29,6 +30,7 @@ public class CoreDataManager: IStorage {
         message?.text = messageModel.textMessage
         message?.isIncomingMessage = messageModel.isIncomingMessage
         message?.date = messageModel.date
+        message?.online = online
         if isLast {
             conversion?.lastMessage = message
         }
@@ -54,14 +56,16 @@ public class CoreDataManager: IStorage {
             updateMessage(context: context,
                     messageModel: message,
                     conversion: conversion,
-                    isLast: true)
+                    isLast: true,
+                    online: model.online)
         }
         model.message.forEach { (messageModel: MessageModel) in
 
             updateMessage(context: context,
                     messageModel: messageModel,
                     conversion: conversion,
-                    isLast: false)
+                    isLast: false,
+                    online: model.online)
         }
     }
 
